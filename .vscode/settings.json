@@ -1,0 +1,4 @@
+{
+    "python.defaultInterpreterPath": "~/Documents/venv/jupyter-books",
+    "python.terminal.activateEnvInCurrentTerminal": true
+}

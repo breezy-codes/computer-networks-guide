@@ -1,0 +1,24 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: CISCO Packet Tracer
+    numbered: false
+    chapters:
+      - file: cisco/cisco-packet-tracer-tutorial
+      - file: cisco/dhcp-guide-in-cisco
+  - caption: Python
+    numbered: false
+    chapters:
+      - file: python/arp-simulator-python
+      - file: python/simple-server-in-python
+      - file: python/control-plane-bellman-ford
+      - file: python/control-plane-dijkstra
+  - caption: Wireshark
+    numbered: false
+    chapters:
+      - file: wireshark/wireshark-views
+      - file: wireshark/decrypting-https-in-wireshark
+          

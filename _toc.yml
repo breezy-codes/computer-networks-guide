@@ -14,8 +14,10 @@ parts:
     chapters:
       - file: python/arp-simulator-python
       - file: python/simple-server-in-python
-      - file: python/control-plane-bellman-ford
-      - file: python/control-plane-dijkstra
+      - file: python/network-routing-algorithms
+        sections:
+          - file: python/control-plane-bellman-ford
+          - file: python/control-plane-dijkstra
   - caption: Wireshark
     numbered: false
     chapters:

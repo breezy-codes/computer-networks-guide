@@ -62,7 +62,7 @@
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Prerequisites:" href="simple-server-in-python.html" />
+    <link rel="next" title="Building a Simple Server-Client Database" href="simple-server-in-python.html" />
     <link rel="prev" title="DHCP Server setup in CISCO Packet Tracer" href="../cisco/dhcp-guide-in-cisco.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -189,20 +189,16 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Build an ARP Simulator with Python</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="simple-server-in-python.html"><strong>Prerequisites:</strong></a></li>
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="control-plane-bellman-ford.html">Bellman Ford Algorithm</a></li>
-<li class="toctree-l1"><a class="reference internal" href="control-plane-dijkstra.html">Dijkstra Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simple-server-in-python.html">Building a Simple Server-Client Database</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="network-routing-decisions.html">Network Routing Simulations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="control-plane-bellman-ford.html">Bellman Ford Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="control-plane-dijkstra.html"><strong>Dijkstra Algorithm</strong></a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Wireshark</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../wireshark/wireshark-views.html"><strong>The defaults:</strong></a></li>
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="../wireshark/wireshark-views.html"><strong>Wireshark Custom Column Views</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../wireshark/decrypting-https-in-wireshark.html"><strong>Decrypt HTTPS Traffic in Wireshark</strong></a></li>
 </ul>
 
@@ -425,6 +421,16 @@ document.write(`
 <section id="arp-server-implementation-in-python">
 <h2><strong>ARP Server Implementation in Python</strong><a class="headerlink" href="#arp-server-implementation-in-python" title="Link to this heading">#</a></h2>
 <p>This Python script demonstrates a simple ARP (Address Resolution Protocol) server that listens for incoming connections and responds to ARP requests. The server maintains a predefined dictionary of IP addresses and their corresponding MAC addresses. When a client sends an IP address to the server, it looks up the IP in the dictionary and returns the associated MAC address. If the IP address is not found in the dictionary, it responds with “Not Found”.</p>
+<div class="tip admonition">
+<p class="admonition-title">Key Components:</p>
+<ul class="simple">
+<li><p><strong>Network Dictionary:</strong> A dictionary named <code class="docutils literal notranslate"><span class="pre">NETWORK</span></code> is defined at the beginning of the script. This dictionary contains IP addresses as keys and their corresponding MAC addresses as values.</p></li>
+<li><p><strong>Server Setup:</strong> The server is configured to listen on <code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code> (localhost) and port <code class="docutils literal notranslate"><span class="pre">65432</span></code>. It uses the socket library to create a TCP socket and bind it to the specified IP address and port.</p></li>
+<li><p><strong>Listening for Connections:</strong> The server starts listening for incoming connections. When a connection is established, it accepts the connection and enters a loop to continuously receive and respond to ARP requests from the client.</p></li>
+<li><p><strong>Handling ARP Requests:</strong> When the server receives an IP address from the client, it checks the <code class="docutils literal notranslate"><span class="pre">NETWORK</span></code> dictionary for the corresponding MAC address. If found, it sends the MAC address back to the client. If not, it responds with <code class="docutils literal notranslate"><span class="pre">&quot;Not</span> <span class="pre">Found&quot;</span></code>.</p></li>
+<li><p><strong>Continuous Operation:</strong> The server runs indefinitely, waiting for incoming connections and responding to ARP requests.</p></li>
+</ul>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">socket</span>
@@ -467,20 +473,21 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="tip admonition">
-<p class="admonition-title">How it works:</p>
-<ul class="simple">
-<li><p><strong>Network Dictionary:</strong> A dictionary named <code class="docutils literal notranslate"><span class="pre">NETWORK</span></code> is defined at the beginning of the script. This dictionary contains IP addresses as keys and their corresponding MAC addresses as values.</p></li>
-<li><p><strong>Server Setup:</strong> The server is configured to listen on <code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code> (localhost) and port <code class="docutils literal notranslate"><span class="pre">65432</span></code>. It uses the socket library to create a TCP socket and bind it to the specified IP address and port.</p></li>
-<li><p><strong>Listening for Connections:</strong> The server starts listening for incoming connections. When a connection is established, it accepts the connection and enters a loop to continuously receive and respond to ARP requests from the client.</p></li>
-<li><p><strong>Handling ARP Requests:</strong> When the server receives an IP address from the client, it checks the <code class="docutils literal notranslate"><span class="pre">NETWORK</span></code> dictionary for the corresponding MAC address. If found, it sends the MAC address back to the client. If not, it responds with <code class="docutils literal notranslate"><span class="pre">&quot;Not</span> <span class="pre">Found&quot;</span></code>.</p></li>
-<li><p><strong>Continuous Operation:</strong> The server runs indefinitely, waiting for incoming connections and responding to ARP requests.</p></li>
-</ul>
-</div>
 </section>
 <section id="arp-client-implementation-in-python">
 <h2><strong>ARP Client Implementation in Python</strong><a class="headerlink" href="#arp-client-implementation-in-python" title="Link to this heading">#</a></h2>
 <p>This Python script demonstrates a simple ARP (Address Resolution Protocol) client that interacts with the previously implemented ARP server. The client sends an IP address to the server, requests the corresponding MAC address, and updates its local ARP table based on the server’s response.</p>
+<div class="tip admonition">
+<p class="admonition-title">Key Components:</p>
+<ul class="simple">
+<li><p><strong>Server Configuration:</strong> The client is configured to connect to the ARP server running on <code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code> (localhost) and port <code class="docutils literal notranslate"><span class="pre">65432</span></code>.</p></li>
+<li><p><strong>ARP Table Initialization:</strong> The client maintains a local ARP table, which is initially empty. This table stores IP addresses as keys and their corresponding MAC addresses as values.</p></li>
+<li><p><strong>User Input:</strong> The client prompts the user to enter an IP address for which the MAC address is required.</p></li>
+<li><p><strong>Communication with ARP Server:</strong> The client creates a TCP socket connection to the server, sends the IP address, and waits for the server’s response. The server responds with the corresponding MAC address or <code class="docutils literal notranslate"><span class="pre">&quot;Not</span> <span class="pre">Found&quot;</span></code> if the IP address is not in its dictionary.</p></li>
+<li><p><strong>Updating ARP Table:</strong> Upon receiving the MAC address from the server, the client updates its local ARP table. If the MAC address is not found, it informs the user accordingly.</p></li>
+<li><p><strong>Continuous Operation:</strong> The client continuously prompts the user for IP addresses and updates the ARP table based on server responses.</p></li>
+</ul>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">socket</span>
@@ -510,17 +517,6 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="tip admonition">
-<p class="admonition-title">How it works:</p>
-<ul class="simple">
-<li><p><strong>Server Configuration:</strong> The client is configured to connect to the ARP server running on <code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code> (localhost) and port <code class="docutils literal notranslate"><span class="pre">65432</span></code>.</p></li>
-<li><p><strong>ARP Table Initialization:</strong> The client maintains a local ARP table, which is initially empty. This table stores IP addresses as keys and their corresponding MAC addresses as values.</p></li>
-<li><p><strong>User Input:</strong> The client prompts the user to enter an IP address for which the MAC address is required.</p></li>
-<li><p><strong>Communication with ARP Server:</strong> The client creates a TCP socket connection to the server, sends the IP address, and waits for the server’s response. The server responds with the corresponding MAC address or <code class="docutils literal notranslate"><span class="pre">&quot;Not</span> <span class="pre">Found&quot;</span></code> if the IP address is not in its dictionary.</p></li>
-<li><p><strong>Updating ARP Table:</strong> Upon receiving the MAC address from the server, the client updates its local ARP table. If the MAC address is not found, it informs the user accordingly.</p></li>
-<li><p><strong>Continuous Operation:</strong> The client continuously prompts the user for IP addresses and updates the ARP table based on server responses.</p></li>
-</ul>
-</div>
 </section>
 <section id="how-to-run-the-code">
 <h2>How to run the code<a class="headerlink" href="#how-to-run-the-code" title="Link to this heading">#</a></h2>
@@ -529,7 +525,7 @@ document.write(`
 <h3>How the output will look:<a class="headerlink" href="#how-the-output-will-look" title="Link to this heading">#</a></h3>
 <p>Here is a sample of the output from running the code, as you can see the table is updated each time you provide an IP address and the MAC address is found. Or if the IP address isn’t found, it repsonds with <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">found</span></code> and the table remains the same.</p>
 <div class="tip admonition">
-<p class="admonition-title">ARP Server Output</p>
+<p class="admonition-title">Client Output</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Initial<span class="w"> </span>ARP<span class="w"> </span>Table:<span class="w"> </span><span class="o">{}</span>
 Enter<span class="w"> </span>IP<span class="w"> </span>to<span class="w"> </span>ARP<span class="w"> </span><span class="k">for</span>:<span class="w"> </span><span class="m">192</span>.168.1.1
 Received<span class="w"> </span>ARP<span class="w"> </span>reply:<span class="w"> </span><span class="m">192</span>.168.1.1<span class="w"> </span>is<span class="w"> </span>at<span class="w"> </span><span class="m">00</span>:0A:95:9D:68:16
@@ -604,7 +600,7 @@ Current<span class="w"> </span>ARP<span class="w"> </span>Table:<span class="w">
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><strong>Prerequisites:</strong></p>
+        <p class="prev-next-title">Building a Simple Server-Client Database</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

@@ -58,6 +58,8 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
     <link rel="icon" href="_static/favicon.png"/>
     <link rel="index" title="Index" href="genindex.html" />
@@ -190,20 +192,16 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="python/arp-simulator-python.html"><strong>Build an ARP Simulator with Python</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="python/simple-server-in-python.html"><strong>Prerequisites:</strong></a></li>
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="python/control-plane-bellman-ford.html">Bellman Ford Algorithm</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python/control-plane-dijkstra.html">Dijkstra Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python/simple-server-in-python.html">Building a Simple Server-Client Database</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="python/network-routing-algorithms.html">Network Routing Algorithms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="python/control-plane-bellman-ford.html">Bellman Ford Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/control-plane-dijkstra.html"><strong>Dijkstra Algorithm</strong></a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Wireshark</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="wireshark/wireshark-views.html"><strong>The defaults:</strong></a></li>
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="wireshark/wireshark-views.html"><strong>Wireshark Custom Column Views</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="wireshark/decrypting-https-in-wireshark.html"><strong>Decrypt HTTPS Traffic in Wireshark</strong></a></li>
 </ul>
 
@@ -447,22 +445,18 @@ document.write(`
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="python/arp-simulator-python.html"><strong>Build an ARP Simulator with Python</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="python/simple-server-in-python.html"><strong>Prerequisites:</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="python/simple-server-in-python.html#getting-started-server-side"><strong>Getting Started: Server Side</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="python/simple-server-in-python.html#client-side"><strong>Client Side:</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="python/simple-server-in-python.html#usage"><strong>Usage:</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="python/simple-server-in-python.html#conclusion"><strong>Conclusion:</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="python/control-plane-bellman-ford.html">Bellman Ford Algorithm</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python/control-plane-dijkstra.html">Dijkstra Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python/simple-server-in-python.html">Building a Simple Server-Client Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python/network-routing-algorithms.html">Network Routing Algorithms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="python/control-plane-bellman-ford.html">Bellman Ford Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/control-plane-dijkstra.html"><strong>Dijkstra Algorithm</strong></a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Wireshark</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="wireshark/wireshark-views.html"><strong>The defaults:</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="wireshark/wireshark-views.html#adding-views-from-column-preferences"><strong>Adding views from column preferences:</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="wireshark/wireshark-views.html#adding-columns-from-the-frame-section"><strong>Adding columns from the frame section:</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="wireshark/wireshark-views.html#how-to-toggle-filters"><strong>How to toggle filters:</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="wireshark/wireshark-views.html"><strong>Wireshark Custom Column Views</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="wireshark/decrypting-https-in-wireshark.html"><strong>Decrypt HTTPS Traffic in Wireshark</strong></a></li>
 </ul>
 </div>

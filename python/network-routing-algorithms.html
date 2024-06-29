@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Code Structure &#8212; Computer Networks Guide Book</title>
+    <title>Network Routing Algorithms &#8212; Computer Networks Guide Book</title>
   
   
   
@@ -58,10 +58,14 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'python/network-routing-decision-in-python';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'python/network-routing-algorithms';</script>
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Bellman Ford Algorithm" href="control-plane-bellman-ford.html" />
+    <link rel="prev" title="Building a Simple Server-Client Database" href="simple-server-in-python.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -124,8 +128,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -187,9 +189,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../cisco/dhcp-guide-in-cisco.html">DHCP Server setup in CISCO Packet Tracer</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="arp-simulator-python.html"><strong>Build an ARP Simulator with Python</strong></a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="simple-server-in-python.html">Building a Simple Server-Client Database</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1"><a class="reference internal" href="simple-server-in-python.html">Building a Simple Server-Client Database</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Network Routing Algorithms</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="control-plane-bellman-ford.html">Bellman Ford Algorithm</a></li>
 <li class="toctree-l2"><a class="reference internal" href="control-plane-dijkstra.html"><strong>Dijkstra Algorithm</strong></a></li>
 </ul>
@@ -270,7 +273,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fpython/network-routing-decision-in-python.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fpython/network-routing-algorithms.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -300,7 +303,7 @@
       
       
       
-      <li><a href="../_sources/python/network-routing-decision-in-python.md" target="_blank"
+      <li><a href="../_sources/python/network-routing-algorithms.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -384,7 +387,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Code Structure</h1>
+    <h1>Network Routing Algorithms</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -394,19 +397,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Code Structure</strong></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-components"><strong>Common Components</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dijkstra-s-algorithm"><strong>Dijkstra’s Algorithm</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bellman-ford-algorithm"><strong>Bellman-Ford Algorithm</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#main-execution"><strong>Main Execution</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complexity-advantages-and-disadvantages">Complexity, Advantages, and Disadvantages</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bellman-ford-algorithm">Bellman-Ford Algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dijkstra-s-algorithm">Dijkstra’s Algorithm</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematics-behind-the-algorithms"><strong>Mathematics Behind the Algorithms</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started"><strong>Getting Started</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#improvements-and-extensions"><strong>Improvements and Extensions</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion"><strong>Conclusion</strong></a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -417,69 +413,64 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <p>Understanding routing decisions in computer networking is crucial. The control plane, which directs data in networks, relies on routing algorithms, such as Dijkstra’s shortest path and the Bellman-Ford algorithm. In this blog post, we’ll explore a Network Control Plane Simulator that helps users gain insights into network routing.</p>
-<p><img alt="python" src="img/tutorials/network-routing-decisions/img1.png" /></p>
+  <section class="tex2jax_ignore mathjax_ignore" id="network-routing-algorithms">
+<h1>Network Routing Algorithms<a class="headerlink" href="#network-routing-algorithms" title="Link to this heading">#</a></h1>
+<p>These python scripts demonstrate two fundamental network routing algorithms: Bellman-Ford and Dijkstra. Both algorithms are used to find the shortest path in a network of routers, but they operate differently and have distinct use cases. Below are the implementations and explanations for each algorithm.</p>
+<p><img alt="python" src="../_images/img12.png" /></p>
 <p>You can view the program code here:</p>
 <p><img alt="Readme Card" src="https://github-readme-stats.vercel.app/api/pin/?username=breezy-codes&amp;repo=Control-Plane-Simulator&amp;show_owner=true&amp;" /></p>
-<section id="code-structure">
-<h1><strong>Code Structure</strong><a class="headerlink" href="#code-structure" title="Link to this heading">#</a></h1>
-<section id="common-components">
-<h2><strong>Common Components</strong><a class="headerlink" href="#common-components" title="Link to this heading">#</a></h2>
-<p><strong>Network Topology (routers dictionary):</strong> This dictionary describes our virtual network layout, where routers connect to neighbouring routers with numerical weights.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="control-plane-bellman-ford.html">Bellman Ford Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control-plane-dijkstra.html"><strong>Dijkstra Algorithm</strong></a></li>
+</ul>
+</div>
+<section id="complexity-advantages-and-disadvantages">
+<h2>Complexity, Advantages, and Disadvantages<a class="headerlink" href="#complexity-advantages-and-disadvantages" title="Link to this heading">#</a></h2>
+<section id="bellman-ford-algorithm">
+<h3>Bellman-Ford Algorithm<a class="headerlink" href="#bellman-ford-algorithm" title="Link to this heading">#</a></h3>
+<p><strong>Time Complexity</strong>:</p>
+<ul class="simple">
+<li><p>The time complexity of the Bellman-Ford algorithm is <span class="math notranslate nohighlight">\(O(V \cdot E)\)</span>, where <span class="math notranslate nohighlight">\(V\)</span> is the number of vertices and <span class="math notranslate nohighlight">\(E\)</span> is the number of edges.</p></li>
+</ul>
+<p><strong>Space Complexity</strong>:</p>
+<ul class="simple">
+<li><p>The space complexity is <span class="math notranslate nohighlight">\(O(V)\)</span> for storing distances and predecessors.</p></li>
+</ul>
+<p><strong>Advantages</strong>:</p>
+<ul class="simple">
+<li><p><strong>Handles Negative Weights</strong>: Bellman-Ford can handle graphs with negative weight edges.</p></li>
+<li><p><strong>Detects Negative Weight Cycles</strong>: It can detect if there is a negative weight cycle in the graph, which Dijkstra’s algorithm cannot.</p></li>
+</ul>
+<p><strong>Disadvantages</strong>:</p>
+<ul class="simple">
+<li><p><strong>Slower than Dijkstra</strong>: Bellman-Ford is generally slower compared to Dijkstra’s algorithm for graphs without negative weights.</p></li>
+<li><p><strong>Inefficiency with Large Graphs</strong>: The algorithm can be inefficient for very large graphs due to its higher time complexity.</p></li>
+</ul>
 </section>
 <section id="dijkstra-s-algorithm">
-<h2><strong>Dijkstra’s Algorithm</strong><a class="headerlink" href="#dijkstra-s-algorithm" title="Link to this heading">#</a></h2>
-<p><strong>Dijkstra’s Algorithm Function (dijkstra function):</strong> Dijkstra’s algorithm is based on the concept of finding the shortest path in a weighted graph. It uses a priority queue to explore the network efficiently. The algorithm works by calculating the shortest distance from a starting router to all other routers in the network.
-<strong>Path Determination (get_path function):</strong> This function determines the optimal path from a source to a destination router using Dijkstra’s results. It backtracks using predecessors to find the shortest path.</p>
-<p><img alt="python" src="img/tutorials/network-routing-decisions/img2.png" /></p>
-</section>
-<section id="bellman-ford-algorithm">
-<h2><strong>Bellman-Ford Algorithm</strong><a class="headerlink" href="#bellman-ford-algorithm" title="Link to this heading">#</a></h2>
-<p><strong>Bellman-Ford Algorithm Function (bellman_ford function):</strong> The Bellman-Ford algorithm is another method for finding the shortest path in a weighted graph. Unlike Dijkstra’s algorithm, it can handle graphs with negative edge weights and identify negative weight cycles. The algorithm iteratively relaxes edges to determine the shortest paths.
-<strong>Path Determination using Bellman-Ford (get_path_bf function):</strong> This function traces back the optimal path from source to destination using Bellman-Ford’s results.</p>
-<p><img alt="python" src="img/tutorials/network-routing-decisions/img3.png" /></p>
-</section>
-<section id="main-execution">
-<h2><strong>Main Execution</strong><a class="headerlink" href="#main-execution" title="Link to this heading">#</a></h2>
-<p>Sample test cases at the end of each script demonstrate the algorithms in action, including finding paths between specified router pairs.</p>
-</section>
-</section>
-<section id="mathematics-behind-the-algorithms">
-<h1><strong>Mathematics Behind the Algorithms</strong><a class="headerlink" href="#mathematics-behind-the-algorithms" title="Link to this heading">#</a></h1>
-<p><strong>Dijkstra’s Algorithm:</strong> Dijkstra’s algorithm uses concepts of graph theory and dynamic programming. It maintains a set of visited nodes and computes the shortest distance to each node by iteratively selecting the node with the smallest tentative distance. The algorithm relies on the principle that a shorter path to a node is found by relaxing edges in a particular order.
-<strong>Bellman-Ford Algorithm:</strong> The Bellman-Ford algorithm also works with weighted graphs, using the concept of relaxation to iteratively update estimates of the shortest distance to each node. It is designed to handle graphs with negative edge weights and detect negative weight cycles by repeating the relaxation step.</p>
-</section>
-<section id="getting-started">
-<h1><strong>Getting Started</strong><a class="headerlink" href="#getting-started" title="Link to this heading">#</a></h1>
-<p>To run the simulator:</p>
-<ol class="arabic simple">
-<li><p>Ensure you have Python installed on your system.</p></li>
-<li><p>Clone this repository or download the scripts.</p></li>
-<li><p>Navigate to the directory and run the appropriate script:</p>
+<h3>Dijkstra’s Algorithm<a class="headerlink" href="#dijkstra-s-algorithm" title="Link to this heading">#</a></h3>
+<p><strong>Time Complexity</strong>:</p>
 <ul class="simple">
-<li><p>For Dijkstra’s algorithm:<br />
-<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">dijkstra_simulator.py</span></code></p></li>
+<li><p>Using a simple array: <span class="math notranslate nohighlight">\(O(V^2)\)</span></p></li>
+<li><p>Using a priority queue (e.g., binary heap): <span class="math notranslate nohighlight">\(O((V + E) \log V)\)</span></p></li>
 </ul>
-</li>
-<li><p>For Bellman-Ford’s algorithm:
-<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">bellmanford_simulator.py</span></code><br />
-Executing the scripts will display optimal paths for sample test cases and their associated costs.</p></li>
-</ol>
+<p><strong>Space Complexity</strong>:</p>
+<ul class="simple">
+<li><p>The space complexity is <span class="math notranslate nohighlight">\(O(V)\)</span> for storing distances, predecessors, and the priority queue.</p></li>
+</ul>
+<p><strong>Advantages</strong>:</p>
+<ul class="simple">
+<li><p><strong>Efficiency</strong>: Dijkstra’s algorithm is faster and more efficient for graphs with non-negative weights.</p></li>
+<li><p><strong>Suitable for Dense Graphs</strong>: When implemented with a priority queue, Dijkstra’s algorithm performs well even for dense graphs.</p></li>
+</ul>
+<p><strong>Disadvantages</strong>:</p>
+<ul class="simple">
+<li><p><strong>Cannot Handle Negative Weights</strong>: Dijkstra’s algorithm cannot handle negative weight edges, as it may produce incorrect results.</p></li>
+<li><p><strong>No Cycle Detection</strong>: It does not detect negative weight cycles in the graph.</p></li>
+</ul>
 </section>
-<section id="improvements-and-extensions">
-<h1><strong>Improvements and Extensions</strong><a class="headerlink" href="#improvements-and-extensions" title="Link to this heading">#</a></h1>
-<ol class="arabic simple">
-<li><p><strong>Dynamic Topology:</strong> Implement a user interface or command-line prompt for users to input their own topology dynamically.</p></li>
-<li><p><strong>Visualisation:</strong> Design a graphical interface to visually depict routers and connections, enhancing understanding.</p></li>
-<li><p><strong>Multiple Algorithm Comparison:</strong> Allow users to select from several algorithms and compare results.</p></li>
-<li><p><strong>Network Failures Simulation:</strong> Simulate network failures, such as routers or connections failing, to test routing algorithm resilience.</p></li>
-<li><p><strong>Performance Metrics:</strong> Measure routing decision execution times to examine the impact of factors like network size and complexity.</p></li>
-<li><p><strong>Support for Additional Costs:</strong> Extend support for metrics like bandwidth, congestion, or reliability determining optimal paths.</p></li>
-</ol>
 </section>
-<section id="conclusion">
-<h1><strong>Conclusion</strong><a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h1>
-<p>The Network Control Plane Simulator is a valuable tool for understanding routing decisions in computer networks. As our digital landscape evolves, tools like this are invaluable for students, professionals, and enthusiasts. Proposed improvements would enhance this simulator for advanced network simulations and algorithm comparisons. Understanding network routing is crucial in our data-driven world.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -512,6 +503,24 @@ Executing the scripts will display optimal paths for sample test cases and their
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="simple-server-in-python.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Building a Simple Server-Client Database</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="control-plane-bellman-ford.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Bellman Ford Algorithm</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -528,19 +537,12 @@ Executing the scripts will display optimal paths for sample test cases and their
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Code Structure</strong></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-components"><strong>Common Components</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dijkstra-s-algorithm"><strong>Dijkstra’s Algorithm</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bellman-ford-algorithm"><strong>Bellman-Ford Algorithm</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#main-execution"><strong>Main Execution</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complexity-advantages-and-disadvantages">Complexity, Advantages, and Disadvantages</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bellman-ford-algorithm">Bellman-Ford Algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dijkstra-s-algorithm">Dijkstra’s Algorithm</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematics-behind-the-algorithms"><strong>Mathematics Behind the Algorithms</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started"><strong>Getting Started</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#improvements-and-extensions"><strong>Improvements and Extensions</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion"><strong>Conclusion</strong></a></li>
 </ul>
-
   </nav></div>
 
 </div></div>

@@ -62,7 +62,7 @@
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="The defaults:" href="wireshark-views.html" />
+    <link rel="prev" title="Wireshark Custom Column Views" href="wireshark-views.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -188,20 +188,16 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../python/arp-simulator-python.html"><strong>Build an ARP Simulator with Python</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python/simple-server-in-python.html"><strong>Prerequisites:</strong></a></li>
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="../python/control-plane-bellman-ford.html">Bellman Ford Algorithm</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python/control-plane-dijkstra.html">Dijkstra Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/simple-server-in-python.html">Building a Simple Server-Client Database</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../python/network-routing-decisions.html">Network Routing Simulations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python/control-plane-bellman-ford.html">Bellman Ford Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python/control-plane-dijkstra.html"><strong>Dijkstra Algorithm</strong></a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Wireshark</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="wireshark-views.html"><strong>The defaults:</strong></a></li>
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="wireshark-views.html"><strong>Wireshark Custom Column Views</strong></a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Decrypt HTTPS Traffic in Wireshark</strong></a></li>
 </ul>
 
@@ -427,7 +423,7 @@ document.write(`
 <h2>Lets go through the steps:<a class="headerlink" href="#lets-go-through-the-steps" title="Link to this heading">#</a></h2>
 <section id="step-1">
 <h3><strong>Step 1</strong><a class="headerlink" href="#step-1" title="Link to this heading">#</a></h3>
-<p><img alt="Wireshark" src="../_images/img12.png" /></p>
+<p><img alt="Wireshark" src="../_images/img13.png" /></p>
 <p>The first step is to create an environment variable to capture the keys needed for decryption. The first step is to open up control panel and go to system properties.
 The window should look like this, an easy way to find it is to just type <code class="docutils literal notranslate"><span class="pre">environment</span> <span class="pre">variables</span></code> into the start search menu.
 From here you will want to enter into the environment variables box, and this is where you will be creating the SSL key log.</p>
@@ -508,7 +504,7 @@ From here you will want to enter into the environment variables box, and this is
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><strong>The defaults:</strong></p>
+        <p class="prev-next-title"><strong>Wireshark Custom Column Views</strong></p>
       </div>
     </a>
 </div>

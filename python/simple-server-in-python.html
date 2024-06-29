@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Prerequisites: &#8212; Computer Networks Guide Book</title>
+    <title>Building a Simple Server-Client Database &#8212; Computer Networks Guide Book</title>
   
   
   
@@ -62,7 +62,7 @@
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Bellman Ford Algorithm" href="control-plane-bellman-ford.html" />
+    <link rel="next" title="Network Routing Simulations" href="network-routing-decisions.html" />
     <link rel="prev" title="Build an ARP Simulator with Python" href="arp-simulator-python.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -189,20 +189,16 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="arp-simulator-python.html"><strong>Build an ARP Simulator with Python</strong></a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Prerequisites:</strong></a></li>
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="control-plane-bellman-ford.html">Bellman Ford Algorithm</a></li>
-<li class="toctree-l1"><a class="reference internal" href="control-plane-dijkstra.html">Dijkstra Algorithm</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Building a Simple Server-Client Database</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="network-routing-decisions.html">Network Routing Simulations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="control-plane-bellman-ford.html">Bellman Ford Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="control-plane-dijkstra.html"><strong>Dijkstra Algorithm</strong></a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Wireshark</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../wireshark/wireshark-views.html"><strong>The defaults:</strong></a></li>
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="../wireshark/wireshark-views.html"><strong>Wireshark Custom Column Views</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../wireshark/decrypting-https-in-wireshark.html"><strong>Decrypt HTTPS Traffic in Wireshark</strong></a></li>
 </ul>
 
@@ -305,7 +301,7 @@
       
       
       
-      <li><a href="../_sources/python/simple-server-in-python.md" target="_blank"
+      <li><a href="../_sources/python/simple-server-in-python.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -315,7 +311,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -389,7 +385,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Prerequisites:</h1>
+    <h1>Building a Simple Server-Client Database</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -399,13 +395,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Prerequisites:</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started-server-side"><strong>Getting Started: Server Side</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#client-side"><strong>Client Side:</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#usage"><strong>Usage:</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion"><strong>Conclusion:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#server-side-implementation"><strong>Server-Side Implementation</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#client-side-implementation"><strong>Client-Side Implementation</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-run-the-code">How to run the code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-output-will-look">How the output will look:</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#watch-my-tutorial-on-the-process-on-youtube">Watch my tutorial on the process on YouTube</a></li>
+</ul>
             </nav>
         </div>
     </div>
@@ -416,69 +413,145 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <p>In the world of programming, networking plays a crucial role in enabling communication between different devices. In this article, we’ll walk through the process of building a basic server-client Python program that demonstrates the concept of socket programming. We’ll create an animal database where the client can request animal names, and the server responds with information about those animals.</p>
-<p>You can view the code for this here:
-<img alt="Readme Card" src="https://github-readme-stats.vercel.app/api/pin/?username=breezy-codes&amp;repo=Server-Client-Program&amp;show_owner=true&amp;" /></p>
-<section id="prerequisites">
-<h1><strong>Prerequisites:</strong><a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="building-a-simple-server-client-database">
+<h1>Building a Simple Server-Client Database<a class="headerlink" href="#building-a-simple-server-client-database" title="Link to this heading">#</a></h1>
+<p>This Python script demonstrates a simple server-client model for querying an animal database. The server stores a list of animals along with their names and ages, and the client can request the names of animals from the server. The communication between the server and client is done using UDP sockets.</p>
+<p>You can view the code for this here:</p>
+<p><img alt="Readme Card" src="https://github-readme-stats.vercel.app/api/pin/?username=breezy-codes&amp;repo=Server-Client-Program&amp;show_owner=true&amp;" /></p>
+<section id="server-side-implementation">
+<h2><strong>Server-Side Implementation</strong><a class="headerlink" href="#server-side-implementation" title="Link to this heading">#</a></h2>
+<p>The server maintains a dictionary of animals, where each key is an animal type and the value is a tuple containing names and ages of the animals. The server listens for incoming requests and responds with the requested animal data.</p>
+<div class="tip admonition">
+<p class="admonition-title">Key Components:</p>
 <ul class="simple">
-<li><p>Basic understanding of Python programming.</p></li>
-<li><p>Familiarity with sockets and fundamental networking concepts.</p></li>
+<li><p><strong>Animal Dictionary:</strong> A dictionary named our_animals stores the data of various animals.</p></li>
+<li><p><strong>Server Configuration:</strong> The server is configured to run on 127.0.0.1 (localhost) and port 53.</p></li>
+<li><p><strong>Socket Setup:</strong> A UDP socket is created and bound to the specified IP address and port.</p></li>
+<li><p><strong>Request Handling:</strong> The server continuously listens for incoming requests. When a request is received, it looks up the requested animal in the dictionary and sends the corresponding data back to the client. If the animal is not found, it sends a “not found” message.</p></li>
 </ul>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">socket</span>
+
+<span class="c1"># Animal Dictionary</span>
+<span class="n">our_animals</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;lion&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;Bruce, 25yrs old&quot;</span><span class="p">,</span> <span class="s2">&quot;Tony, 10yrs old&quot;</span><span class="p">,</span> <span class="s2">&quot;Michael, 12 yrs old&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;elephant&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;Ellie 108yrs old&quot;</span><span class="p">,</span> <span class="s2">&quot;Ella, 30yrs old&quot;</span><span class="p">,</span> <span class="s2">&quot;Dumbo 68yrs old&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;giraffe&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;Gerry, 7yrs old&quot;</span><span class="p">,</span> <span class="s2">&quot;Grace, 9yrs old&quot;</span><span class="p">,</span> <span class="s2">&quot;Geoffrey, 14yrs old&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;zebra&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;Stripey, 5yrs old&quot;</span><span class="p">,</span> <span class="s2">&quot;Loki, 8yrs old&quot;</span><span class="p">,</span> <span class="s2">&quot;Stella, 6yrs old&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;monkey&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;Squiggles, 3yrs old&quot;</span><span class="p">,</span> <span class="s2">&quot;Winston, 5yrs old&quot;</span><span class="p">,</span> <span class="s2">&quot;Jiggles, 4yrs old&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;emu&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;Karen, 15yrs old&quot;</span><span class="p">,</span> <span class="s2">&quot;Judy, 12yrs old&quot;</span><span class="p">,</span> <span class="s2">&quot;Ken, 18yrs old&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;kangaroo&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;Kenny, 6yrs old&quot;</span><span class="p">,</span> <span class="s2">&quot;Kylie, 4yrs old&quot;</span><span class="p">,</span> <span class="s2">&quot;Kevin, 8yrs old&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;penguin&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;Penny, 2yrs old&quot;</span><span class="p">,</span> <span class="s2">&quot;Pablo, 3yrs old&quot;</span><span class="p">,</span> <span class="s2">&quot;Pippin, 1yr old&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;tiger&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;Tanya, 9yrs old&quot;</span><span class="p">,</span> <span class="s2">&quot;Tyler, 6yrs old&quot;</span><span class="p">,</span> <span class="s2">&quot;Tara, 7yrs old&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+
+<span class="c1"># Server IP and Port Number</span>
+<span class="n">server_ip</span> <span class="o">=</span> <span class="s2">&quot;127.0.0.1&quot;</span>
+<span class="n">server_port</span> <span class="o">=</span> <span class="mi">53</span>
+
+<span class="c1"># Socket set up for communications</span>
+<span class="n">server_socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_DGRAM</span><span class="p">)</span>
+<span class="n">server_socket</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="n">server_ip</span><span class="p">,</span> <span class="n">server_port</span><span class="p">))</span>
+
+<span class="c1"># Server running message</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Our animal database is running...&quot;</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">data</span><span class="p">,</span> <span class="n">client_address</span> <span class="o">=</span> <span class="n">server_socket</span><span class="o">.</span><span class="n">recvfrom</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+    <span class="n">animal</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+    <span class="c1"># If loop for communicating animals to server</span>
+    <span class="k">if</span> <span class="n">animal</span> <span class="ow">in</span> <span class="n">our_animals</span><span class="p">:</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="s2">&quot; , &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">our_animals</span><span class="p">[</span><span class="n">animal</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Client sent request for:&quot;</span><span class="p">,</span> <span class="n">animal</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Server sent animal names:&quot;</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
+        <span class="n">server_socket</span><span class="o">.</span><span class="n">sendto</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">encode</span><span class="p">(),</span> <span class="n">client_address</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">server_socket</span><span class="o">.</span><span class="n">sendto</span><span class="p">(</span><span class="s2">&quot;Animal not found in our database&quot;</span><span class="o">.</span><span class="n">encode</span><span class="p">(),</span><span class="n">client_address</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="getting-started-server-side">
-<h1><strong>Getting Started: Server Side</strong><a class="headerlink" href="#getting-started-server-side" title="Link to this heading">#</a></h1>
-<ol class="arabic simple">
-<li><p><strong>Importing Modules:</strong> Begin by importing the <code class="docutils literal notranslate"><span class="pre">socket</span></code> module, which provides the necessary functions for socket communication.</p></li>
-<li><p><strong>Setting Up Server:</strong> Define the server’s IP address and port number where it will listen for incoming requests.</p></li>
-<li><p><strong>Creating a Socket:</strong> Utilise the <code class="docutils literal notranslate"><span class="pre">socket.socket(socket.AF_INET,</span> <span class="pre">socket.SOCK_DGRAM)</span></code> function to create a socket for communication. <code class="docutils literal notranslate"><span class="pre">AF_INET</span></code> indicates IPv4, and <code class="docutils literal notranslate"><span class="pre">SOCK_DGRAM</span></code> signifies the use of UDP sockets.</p></li>
-<li><p><strong>Binding Socket:</strong> Bind the socket to the previously defined IP and port using <code class="docutils literal notranslate"><span class="pre">server_socket.bind((server_ip,</span> <span class="pre">server_port))</span></code>.</p></li>
-<li><p><strong>Handling Requests:</strong> Implement a loop to continuously handle incoming requests:</p>
+<section id="client-side-implementation">
+<h2><strong>Client-Side Implementation</strong><a class="headerlink" href="#client-side-implementation" title="Link to this heading">#</a></h2>
+<p>The client allows the user to input an animal type and sends this request to the server. The client then receives and displays the server’s response. The user can continue to make requests until they choose to exit.</p>
+<div class="tip admonition">
+<p class="admonition-title">Key Components:</p>
 <ul class="simple">
-<li><p>Receive data and client address using <code class="docutils literal notranslate"><span class="pre">data,</span> <span class="pre">client_address</span> <span class="pre">=</span> <span class="pre">server_socket.recvfrom(1024)</span></code>.</p></li>
-<li><p>Process the received animal name by converting it to lowercase and removing whitespace.</p></li>
-<li><p>Check if the animal name exists in the <code class="docutils literal notranslate"><span class="pre">our_animals</span></code> dictionary. If found, prepare a response by joining the animal names and send it back to the client. If not found, send an appropriate error message.</p></li>
+<li><p><strong>Server Configuration:</strong> The client is configured to connect to the server running on <code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code> (localhost) and port <code class="docutils literal notranslate"><span class="pre">53</span></code>.</p></li>
+<li><p><strong>Socket Setup:</strong> A UDP socket is created for communication with the server.</p></li>
+<li><p><strong>User Interaction:</strong> The client prompts the user to enter an animal type, sends the request to the server, and displays the received response. The user can continue querying the server until they choose to exit.</p></li>
 </ul>
-</li>
-<li><p><strong>Closing Socket</strong>: Close the server socket using <code class="docutils literal notranslate"><span class="pre">server_socket.close()</span></code>.</p></li>
-</ol>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">socket</span>
+
+<span class="c1"># Server IP and Port Number</span>
+<span class="n">server_ip</span> <span class="o">=</span> <span class="s2">&quot;127.0.0.1&quot;</span>
+<span class="n">server_port</span> <span class="o">=</span> <span class="mi">53</span>
+
+<span class="c1"># Socket set up for communications</span>
+<span class="n">client_socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_DGRAM</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">animal</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter an animal to find their names:&quot;</span><span class="p">)</span>
+    <span class="n">client_socket</span><span class="o">.</span><span class="n">sendto</span><span class="p">(</span><span class="n">animal</span><span class="o">.</span><span class="n">encode</span><span class="p">(),</span> <span class="p">(</span><span class="n">server_ip</span><span class="p">,</span> <span class="n">server_port</span><span class="p">))</span>
+
+    <span class="n">response</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">client_socket</span><span class="o">.</span><span class="n">recvfrom</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The names for those animals in our database are:&quot;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+
+    <span class="n">choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Do you want to continue? (y/n&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">choice</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">!=</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span>
+        <span class="k">break</span>
+
+<span class="n">client_socket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="client-side">
-<h1><strong>Client Side:</strong><a class="headerlink" href="#client-side" title="Link to this heading">#</a></h1>
-<ol class="arabic simple">
-<li><p>Importing Modules: As with the server, start by importing the <code class="docutils literal notranslate"><span class="pre">socket</span></code> module.</p></li>
-<li><p>Setting Up Client: Define the server’s IP address and port number.</p></li>
-<li><p>Creating a Socket: Create a socket for communication using <code class="docutils literal notranslate"><span class="pre">socket.socket(socket.AF_INET,</span> <span class="pre">socket.SOCK_DGRAM)</span></code>.</p></li>
-<li><p>Client Interaction Loop: Create a <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True</span></code> loop to keep the client running until the user decides to exit.</p></li>
-<li><p>Sending Requests: Inside the loop.</p>
-<ul class="simple">
-<li><p>Prompt the user to enter an animal name using <code class="docutils literal notranslate"><span class="pre">input()</span></code>.</p></li>
-<li><p>Send the entered animal name to the server using <code class="docutils literal notranslate"><span class="pre">client_socket.sendto(animal.encode(),</span> <span class="pre">(server_ip,</span> <span class="pre">server_port))</span></code>.</p></li>
-</ul>
-</li>
-<li><p>Receiving Responses: Receive the response from the server using <code class="docutils literal notranslate"><span class="pre">response,</span> <span class="pre">_</span> <span class="pre">=</span> <span class="pre">client_socket.recvfrom(1024)</span></code> and print the animal names.</p></li>
-<li><p>Continuation Prompt: Ask the user if they want to continue. If input is not ‘y’, exit the loop.</p></li>
-<li><p>Closing Socket: Close the client socket using <code class="docutils literal notranslate"><span class="pre">client_socket.close()</span></code>.</p></li>
-</ol>
+<section id="how-to-run-the-code">
+<h2>How to run the code<a class="headerlink" href="#how-to-run-the-code" title="Link to this heading">#</a></h2>
+<p>In order to run this code, you need to open both files up in pycharm or vscodes and run the server first and then the client. The server will be running in the background and the client will be sending requests to the server. Then you will interact with the client side where you will enter an animal type, and if the animal type is in the server’s database, it will return the name and age of the animal. If the animal type is not in the database, it will return “Animal not found”.</p>
+<section id="how-the-output-will-look">
+<h3>How the output will look:<a class="headerlink" href="#how-the-output-will-look" title="Link to this heading">#</a></h3>
+<p>Here is a sample of the output from running the code, as you can see the table is updated each time you provide an IP address and the MAC address is found. Or if the IP address isn’t found, it repsonds with <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">found</span></code> and the table remains the same.</p>
+<div class="tip admonition">
+<p class="admonition-title">Client Output</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Enter<span class="w"> </span>an<span class="w"> </span>animal<span class="w"> </span>to<span class="w"> </span>find<span class="w"> </span>their<span class="w"> </span>names:lion
+The<span class="w"> </span>names<span class="w"> </span><span class="k">for</span><span class="w"> </span>those<span class="w"> </span>animals<span class="w"> </span><span class="k">in</span><span class="w"> </span>our<span class="w"> </span>database<span class="w"> </span>are:<span class="w"> </span>Bruce,<span class="w"> </span>25yrs<span class="w"> </span>old<span class="w"> </span>,<span class="w"> </span>Tony,<span class="w"> </span>10yrs<span class="w"> </span>old<span class="w"> </span>,<span class="w"> </span>Michael,<span class="w"> </span><span class="m">12</span><span class="w"> </span>yrs<span class="w"> </span>old
+Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span><span class="k">continue</span>?<span class="w"> </span><span class="o">(</span>y/ny
+Enter<span class="w"> </span>an<span class="w"> </span>animal<span class="w"> </span>to<span class="w"> </span>find<span class="w"> </span>their<span class="w"> </span>names:elephant
+The<span class="w"> </span>names<span class="w"> </span><span class="k">for</span><span class="w"> </span>those<span class="w"> </span>animals<span class="w"> </span><span class="k">in</span><span class="w"> </span>our<span class="w"> </span>database<span class="w"> </span>are:<span class="w"> </span>Ellie<span class="w"> </span>108yrs<span class="w"> </span>old<span class="w"> </span>,<span class="w"> </span>Ella,<span class="w"> </span>30yrs<span class="w"> </span>old<span class="w"> </span>,<span class="w"> </span>Dumbo<span class="w"> </span>68yrs<span class="w"> </span>old
+Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span><span class="k">continue</span>?<span class="w"> </span><span class="o">(</span>y/ny
+Enter<span class="w"> </span>an<span class="w"> </span>animal<span class="w"> </span>to<span class="w"> </span>find<span class="w"> </span>their<span class="w"> </span>names:tigger
+The<span class="w"> </span>names<span class="w"> </span><span class="k">for</span><span class="w"> </span>those<span class="w"> </span>animals<span class="w"> </span><span class="k">in</span><span class="w"> </span>our<span class="w"> </span>database<span class="w"> </span>are:<span class="w"> </span>Animal<span class="w"> </span>not<span class="w"> </span>found<span class="w"> </span><span class="k">in</span><span class="w"> </span>our<span class="w"> </span>database
+Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span><span class="k">continue</span>?<span class="w"> </span><span class="o">(</span>y/ny
+Enter<span class="w"> </span>an<span class="w"> </span>animal<span class="w"> </span>to<span class="w"> </span>find<span class="w"> </span>their<span class="w"> </span>names:tiger
+The<span class="w"> </span>names<span class="w"> </span><span class="k">for</span><span class="w"> </span>those<span class="w"> </span>animals<span class="w"> </span><span class="k">in</span><span class="w"> </span>our<span class="w"> </span>database<span class="w"> </span>are:<span class="w"> </span>Tanya,<span class="w"> </span>9yrs<span class="w"> </span>old<span class="w"> </span>,<span class="w"> </span>Tyler,<span class="w"> </span>6yrs<span class="w"> </span>old<span class="w"> </span>,<span class="w"> </span>Tara,<span class="w"> </span>7yrs<span class="w"> </span>old
+Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span><span class="k">continue</span>?<span class="w"> </span><span class="o">(</span>y/nn
+
+Process<span class="w"> </span>finished<span class="w"> </span>with<span class="w"> </span><span class="nb">exit</span><span class="w"> </span>code<span class="w"> </span><span class="m">0</span>
+</pre></div>
+</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </section>
-<section id="usage">
-<h1><strong>Usage:</strong><a class="headerlink" href="#usage" title="Link to this heading">#</a></h1>
-<ol class="arabic simple">
-<li><p>Run the <code class="docutils literal notranslate"><span class="pre">server.py</span></code> file to start the animal database server.</p></li>
-<li><p>Run the <code class="docutils literal notranslate"><span class="pre">client.py</span></code> file to initiate the client.</p></li>
-<li><p>Enter an animal type (e.g., “lion”) in the client prompt.</p></li>
-<li><p>The server responds with names and ages of animals of that type.</p></li>
-<li><p>Decide whether to continue querying or exit.</p></li>
-</ol>
 </section>
-<section id="conclusion">
-<h1><strong>Conclusion:</strong><a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h1>
-<p>Socket programming is a fundamental skill in networking, enabling communication between devices over networks. In this article, we’ve demonstrated the basics of creating a server-client program in Python, building a simple animal database as an example. This serves as a foundation for more advanced network applications. Keep in mind real-world considerations like error handling, security, and scalability as you delve into more complex networking projects.</p>
+<section id="watch-my-tutorial-on-the-process-on-youtube">
+<h2>Watch my tutorial on the process on YouTube<a class="headerlink" href="#watch-my-tutorial-on-the-process-on-youtube" title="Link to this heading">#</a></h2>
 <div style="text-align: center;">  
   <div style="position: relative; height: 315px; width: 560px; margin: 0 auto;">  
     <iframe src="https://www.youtube.com/embed/S4oAhXF7hcM?si=9QtJxVhkxyW5XRUe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
   </div>  
-</div>
+</div></section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -521,11 +594,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="control-plane-bellman-ford.html"
+       href="network-routing-decisions.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Bellman Ford Algorithm</p>
+        <p class="prev-next-title">Network Routing Simulations</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -545,13 +618,14 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Prerequisites:</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started-server-side"><strong>Getting Started: Server Side</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#client-side"><strong>Client Side:</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#usage"><strong>Usage:</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion"><strong>Conclusion:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#server-side-implementation"><strong>Server-Side Implementation</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#client-side-implementation"><strong>Client-Side Implementation</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-run-the-code">How to run the code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-output-will-look">How the output will look:</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#watch-my-tutorial-on-the-process-on-youtube">Watch my tutorial on the process on YouTube</a></li>
+</ul>
   </nav></div>
 
 </div></div>

@@ -31,6 +31,7 @@ What you've built should now look like this -
 
 ## **Configuration Settings**
 Now the following instructions will go over how to configure the settings in the router and PC for them to communicate correctly.
+
 ### **Step 1 -**
 Click on the router and open up the CLI window.
 In the system configuration you want to select no, then press return/enter to get started.
@@ -64,6 +65,7 @@ Now you need to set up each PC to configure their connections to the router.
 4. Followed by the subnet mask of `255.255.255.0`
 5. Then set the default gateway to `10.1.1.1`
 The specific settings for each PC is -
+
 ``` bash
 PC1 - IPv4 address of 10.1.1.2 subnet mask 255.255.255.0 and default gateway 10.1.1.1
 
@@ -73,9 +75,11 @@ PC3 - IPv4 address of 192.168.1.2 subnet mask 255.255.255.0 and default gateway 
 
 PC4 - IPv4 address of 192.168.1.3 subnet mask 255.255.255.0 and default gateway 192.168.1.1
 ```
+
 Now you're set up! Well done!
 
 ## **How to test your configuration**
+
 To test your configuration in the real time settings, you can select any of the 4 PC's then switch to desktop and select command prompt. Then type ping `ip address` of the computer you want to connect to.
 
 ![python](../img/cisco-packet-tracer-tutorial/img6.png)

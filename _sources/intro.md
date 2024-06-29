@@ -1,5 +1,4 @@
-# **Computer Networks Guides**
-
+# **Computer Networks**
 
 Welcome to this guide on Computer Networks and some of the software/tools involved in learning and understanding computer networks. The goal of this guide is to help you familiarise yourself with the basics of computer networks and some of the tools to understand the networks better. This resource contains guides for CISCO Packet Tracer, Wireshark and Python.
 

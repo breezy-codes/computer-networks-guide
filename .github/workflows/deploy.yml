@@ -3,7 +3,7 @@ name: Deploy Jupyter Book to GitHub Pages
 on:
   push:
     branches:
-      - pages  # Replace with the branch you use for your source files
+      - main
 
 jobs:
   deploy:
@@ -33,7 +33,7 @@ jobs:
 
       # Ensure the CNAME file is in the built HTML directory
       - name: Add CNAME file
-        run: echo "cheat-sheets.breezy-codes.com" > _build/html/CNAME
+        run: echo "comp-networks.breezy-codes.com" > _build/html/CNAME
 
       # Upload the book's HTML as an artifact (Updated to v3)
       - name: Upload artifact

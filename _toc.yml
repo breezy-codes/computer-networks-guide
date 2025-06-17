@@ -25,4 +25,5 @@ parts:
     chapters:
       - file: wireshark/wireshark-views
       - file: wireshark/decrypting-https-in-wireshark
+      - file: wireshark/decrypting-https-ubuntu-wireshark
           

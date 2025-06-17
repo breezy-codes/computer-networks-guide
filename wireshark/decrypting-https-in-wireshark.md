@@ -1,4 +1,3 @@
-
 # **Decrypt HTTPS Traffic in Wireshark**
 
 Wireshark is a handy tool when it comes to exploring network communications by analysing the protocols and packets occurring when accessing a website on the internet. Wireshark can be a powerful tool for network professionals, cybersecurity and students. As a current university student I've been working with Wireshark and wanted to create a tutorial showing you how to decrypt `HTTPS` within Wireshark.

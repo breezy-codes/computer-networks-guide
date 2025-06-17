@@ -21,6 +21,6 @@ Python is a high-level, interpreted programming language that is widely used for
 ```{tableofcontents}
 ```
 
-### Contact:
+### Contact-
 
 If you have any questions or feedback, feel free to reach out to me on [LinkedIn](https://www.linkedin.com/in/brianna-laird/).

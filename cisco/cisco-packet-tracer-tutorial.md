@@ -2,10 +2,13 @@
 # **CISCO Packet Tracer Tutorial**
 
 Are you new to using CISCO packet tracer and not sure where to actually start? Then this tutorial is for you! I know the struggle of trying to figure out something new so I hope this helps you get your footing in using CISCO packet tracer.
+
 To follow along with this tutorial you will need to have installed CISCO packet tracer, which can be found here -
-https://www.netacad.com/courses/packet-tracer
+
+<https://www.netacad.com/courses/packet-tracer>
 
 ## **Let's start**
+
 The first step is to get a hang of the different devices you can add to your network diagram.
 For this tutorial we will be using the router 2911 as it allows for 3 switches to be connected. We will then be using the default switch under switches which is the 2960 version.
 
@@ -16,23 +19,29 @@ You can drag and drop these anywhere onto the display area within CISCO to get s
 ![python](../img//cisco-packet-tracer-tutorial/img2.png)
 
 To add connections you can select the lightning bolt in the bottom left, in this tutorial we will be using the copper straight through cable, if you build different more complex structures in the future you may need to use different cable types.
+
 ## **Connection Instructions -**
+
 When you go to connect there is a lot of options, so this is what you will do for setting up all the cables.
 Connecting the PC's to the switches -
+
 1. PC1 - Select `FastEthernet0` on the `PC1` and connect to `switch0` on the `FastEthernet0/1 port`.
 2. PC2 - Select `FastEthernet0` on the `PC2` and connect to `switch0` on the `FastEthernet0/2 port`.
 3. Repeat the same structure for `PC3` and `PC4`, however connecting them to `switch1`.
 4. Connecting the switches with the router -
 5. For `switch0` you want to select `GigabitEthernet0/1` and connect it to the port `GigabitEthernet0/0` on the router.
 6. For `switch1` you want to select `GigabitEthernet0/1` and connect it to the port `GigabitEthernet0/1` on the router.
+7. 
 What you've built should now look like this -
 
 ![python](../img/cisco-packet-tracer-tutorial/img3.png)
 
 ## **Configuration Settings**
+
 Now the following instructions will go over how to configure the settings in the router and PC for them to communicate correctly.
 
 ### **Step 1 -**
+
 Click on the router and open up the CLI window.
 In the system configuration you want to select no, then press return/enter to get started.
 You will type the following in order to configure the settings which should end up looking like the below screenshot.
@@ -55,6 +64,7 @@ exit
 Congrats! You've now configured the IP addresses within the router for your two switches.
 
 ### **Step 2 -**
+
 Now you need to set up each PC to configure their connections to the router.
 
 ![python](../img/cisco-packet-tracer-tutorial/img5.png)
@@ -89,6 +99,7 @@ I will then get something like the window on the left, generally the first time 
 You can also test this with the simulation feature, if you would like to see this check the linked YouTube video and go to at 9:06 minutes.
 
 ## **Adding more Devices**
+
 If you would like to add more PC's to an already existing switch all you need to do is drag it in, connect and then update the PC configuration, you need to do the same subnet/default gateway but change the IPv4 address to a new end number as its a new connection.
 If you would like to add another switch with more PC's, then you will need to drag them in/set up connections. Then head back up to the router step, you want to repeat this but only for the `GigabitEthernet0/2`. Followed by setting up the computers.
 There you have it! I hope this tutorial was helpful and you learned how to get started.

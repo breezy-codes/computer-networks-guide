@@ -3,6 +3,7 @@
 Introduction: Configuring a DHCP server is a fundamental skill for network administrators and engineers. In this blog post, we'll explore three video tutorials that walk you through DHCP server configuration using CISCO Packet Tracer. Whether you're dealing with a single switch, a router-based setup, or a complex network with multiple switches, you'll find step-by-step instructions to help you get started.
 
 ## **Video 1: DHCP Server Configuration with a Single Switch**
+
 <div style="text-align: center;">  
   <div style="position: relative; height: 315px; width: 560px; margin: 0 auto;">  
     <iframe src="https://www.youtube.com/embed/uf7LQG7vrhY?si=wbkQOKUwLAIS4EZ-" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
@@ -37,6 +38,7 @@ In this video, you'll learn how to set up a DHCP server within CISCO Packet Trac
     <iframe src="https://www.youtube.com/embed/MWgWjkGP2gQ?si=pR_AxIyUCQl09xrr" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
   </div>  
 </div>
+
 In the second video, you'll discover how to configure a router to manage DHCP within CISCO Packet Tracer. This approach allows you to automatically assign IP addresses to connected devices.
 
 ### Here are the steps:
@@ -69,9 +71,9 @@ In the second video, you'll discover how to configure a router to manage DHCP wi
   </div>  
 </div>
 
-The third video guides you through setting up a home network with multiple switches and a dedicated DHCP server. This scenario mimics a more complex real-world environment. 
+The third video guides you through setting up a home network with multiple switches and a dedicated DHCP server. This scenario mimics a more complex real-world environment.
 
-### Follow these steps:
+### Follow these steps-
 
 1. Start by configuring the DHCP server:
     - Set the server's static IP address to `192.168.10.2` (the default gateway for switch 1)

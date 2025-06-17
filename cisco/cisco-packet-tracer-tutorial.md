@@ -1,4 +1,3 @@
-
 # **CISCO Packet Tracer Tutorial**
 
 Are you new to using CISCO packet tracer and not sure where to actually start? Then this tutorial is for you! I know the struggle of trying to figure out something new so I hope this helps you get your footing in using CISCO packet tracer.
@@ -31,7 +30,7 @@ Connecting the PC's to the switches -
 4. Connecting the switches with the router -
 5. For `switch0` you want to select `GigabitEthernet0/1` and connect it to the port `GigabitEthernet0/0` on the router.
 6. For `switch1` you want to select `GigabitEthernet0/1` and connect it to the port `GigabitEthernet0/1` on the router.
-7. 
+
 What you've built should now look like this -
 
 ![python](../img/cisco-packet-tracer-tutorial/img3.png)

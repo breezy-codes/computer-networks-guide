@@ -50,3 +50,13 @@ then once again run `makepkg -si`
 And now CISCO packet tracer is installed!
 
 ![cisco-structure](../img/install-cisco-arch/img8.png)
+
+## Video: Installing CISCO Packet Tracer in Arch Linux
+
+You can also watch the video below to see how to install CISCO Packet Tracer in Arch Linux. This video provides a step-by-step guide, making it easier to follow along with the installation process.
+
+<div style="text-align: center;">  
+  <div style="position: relative; height: 315px; width: 560px; margin: 0 auto;">  
+    <iframe src="https://www.youtube.com/embed/vzLEQkg3M84?si=F4M5MLRBVl_R25dg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
+  </div>  
+</div>

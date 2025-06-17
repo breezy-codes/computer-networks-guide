@@ -1,4 +1,4 @@
-# How to install CISCO Packet Tracer in Ubuntu
+# **How to install CISCO Packet Tracer in Ubuntu**
 
 ## Download CISCO Packet Tracer
 
@@ -23,7 +23,7 @@ To get around this, you can download this package from debian as a deb file.
 
 [Download libgl1-mesa-glx from Debian](https://packages.debian.org/bullseye/amd64/libgl1-mesa-glx/download)
 
-This can then be installed in the same way as we tried prior for CISCO. Either using package installer or the command `sudo dpkg -i libgl1-mesa-glx_20.3.5-1_amd64.deb` to install this dependency. After this we can install the other missing dependency by doing `sudo apt install libxb-xinerama0-dev`, after this you may or may not have some unmet dependencies which can be solved by running  `sudo apt --fix-broken install`. 
+This can then be installed in the same way as we tried prior for CISCO. Either using package installer or the command `sudo dpkg -i libgl1-mesa-glx_20.3.5-1_amd64.deb` to install this dependency. After this we can install the other missing dependency by doing `sudo apt install libxb-xinerama0-dev`, after this you may or may not have some unmet dependencies which can be solved by running  `sudo apt --fix-broken install`.
 
 ![cisco-structure](../img/install-cisco/img4.png)
 

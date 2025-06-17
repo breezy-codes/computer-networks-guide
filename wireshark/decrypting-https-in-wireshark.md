@@ -15,8 +15,8 @@ From here you will want to enter into the environment variables box, and this is
 
 ![Wireshark](../img/decrypt-wireshark/img2.png)
 
-
 From here, you want to enter a new `SYSTEM VARIABLE`, it has to be a system variable for this to work. Press new and you want to create a new system variable to say the following -
+
 - Variable name - `SSLKEYLOGFILE`
 - Variable value - `C:\Users\yourusername\Documents\SSLKeys\ssl.log`
 

@@ -6,13 +6,38 @@ Being able to inspect HTTPS traffic in Wireshark is extremely useful when you're
 
 ## Part 1: Setting Up the `SSLKEYLOGFILE` Environment Variable
 
-First, make sure Wireshark is installed on your Ubuntu system. You can install it with:
+To enable HTTPS decryption, you need to set the `SSLKEYLOGFILE` environment variable so supported browsers can log TLS keys. There are two main ways to do this:
+
+---
+
+### **Method 1 – Temporary (Current Terminal Only)**
+<!-- NEED TO GET A SCREENSHOT SHOWING THIS BEING DONE. NAME IT FIG11 -->
+
+Set the environment variable for just your current terminal session. This is quick and doesn't affect other terminals or future sessions.
 
 ```bash
-sudo apt install wireshark
+export SSLKEYLOGFILE=~/.ssl-key.log
 ```
 
-Next, we need to set the `SSLKEYLOGFILE` environment variable. This allows supported browsers to log TLS keys to a file, which Wireshark can then use to decrypt HTTPS traffic.
+![Figure 2](../img/decrypt-wireshark-ubuntu/fig11.png)
+
+After running this command, any browser launched from this terminal will log TLS keys to `~/.ssl-key.log`. The variable will be unset when you close the terminal.
+
+**Pros:**
+
+- No permanent changes to your system.
+- Good for quick, one-off debugging.
+
+**Cons:**
+
+- You must set it every time you open a new terminal.
+- Only affects programs launched from that terminal session.
+
+---
+
+### **Method 2 – Permanent (All Future Terminals)**
+
+Add the environment variable to your shell configuration file (e.g., `.bashrc`) so it's set automatically for all future terminal sessions.
 
 Open your `.bashrc` file:
 
@@ -30,15 +55,13 @@ export SSLKEYLOGFILE=~/.ssl-key.log
 
 ![Figure 1](../img/decrypt-wireshark-ubuntu/fig1.png)
 
-Save the file by pressing `CTRL + O`, then exit with `CTRL + X`.
-
-To apply the change, either close and reopen the terminal, or run:
+Save and exit (`CTRL + O`, then `CTRL + X`). Then apply the changes with:
 
 ```bash
 source ~/.bashrc
 ```
 
-You can confirm it's been set by running:
+You can confirm it's set by running:
 
 ```bash
 echo $SSLKEYLOGFILE
@@ -48,7 +71,19 @@ You should see the correct file path printed.
 
 ![Figure 3](../img/decrypt-wireshark-ubuntu/fig3.png)
 
+**Pros:**
+
+- Automatically set in every new terminal.
+- No need to remember to set it each time.
+
+**Cons:**
+
+- Affects all terminal sessions (may not always be desirable).
+- Slightly more setup required.
+
 ---
+
+Choose the method that best fits your workflow. For most users, the permanent method is more convenient, but the temporary method is useful for quick tests or if you don't want to modify your shell configuration.
 
 ## Part 2: Configuring Your Browser to Log SSL Keys
 
@@ -63,17 +98,41 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt install ./google-chrome-stable_current_amd64.deb
 ```
 
-Once installed, you need to launch Chrome from a terminal so it inherits the environment variable:
+Once installed, you need to launch Chrome from a terminal so it inherits the environment variable.
 
-```bash
-google-chrome &
-```
+- **If you used Method 1 (Temporary):**  
+    Before launching Chrome, make sure to set the environment variable again in your current terminal session:
+
+    ```bash
+    export SSLKEYLOGFILE=~/.ssl-key.log
+    ```
+
+    Then start Chrome:
+
+    ```bash
+    google-chrome &
+    ```
+
+- **If you used Method 2 (Permanent):**  
+    You can simply run:
+
+    ```bash
+    google-chrome &
+    ```
+
+    The environment variable will already be set in all new terminals.
 
 ![Figure 4](../img/decrypt-wireshark-ubuntu/fig4.png)
+
+### Important Note on Snap/Flatpak Versions
 
 If you try to use Chromium installed via Snap, you'll likely see an error stating that it couldn't open the SSL key log file.
 
 ![Figure 5](../img/decrypt-wireshark-ubuntu/fig5.png)
+
+To avoid this, ensure you are using the `.deb` version of Google Chrome as described above. The Snap and Flatpak versions do not support writing to the `SSLKEYLOGFILE` due to sandboxing restrictions.
+
+### Testing the SSL Key Log File
 
 When Chrome is working correctly, visiting a few HTTPS websites will cause the `.ssl-key.log` file to populate. You can check this by running:
 
@@ -141,10 +200,14 @@ This will show you all HTTP/2 traffic, which is commonly used by modern websites
 
 ## Conclusion
 
-With this method, you can easily inspect HTTPS traffic in Wireshark without needing a proxy or modifying certificate stores. It’s ideal for debugging browser-based network activity or exploring HTTP/2 in detail.
+By using the `SSLKEYLOGFILE` method, you can decrypt and inspect HTTPS traffic in Wireshark without the need for proxies or custom certificates. This approach is especially useful for debugging browser-based network activity and analyzing protocols like HTTP/2.
 
-A few final notes:
+**Key points to remember:**
 
-* You must launch your browser from a terminal that has the `SSLKEYLOGFILE` variable set
-* Snap and Flatpak versions of Chromium and Firefox won’t work with this method
-* Google Chrome (installed via `.deb`) works most reliably
+- You must launch your browser from a terminal session where the `SSLKEYLOGFILE` environment variable is set.
+    - If you used the **temporary method**, remember to set the variable each time you open a new terminal.
+    - If you used the **permanent method**, the variable will be set automatically in all future terminal sessions.
+- This method does **not** work with Snap or Flatpak versions of Chromium or Firefox due to sandboxing restrictions.
+- The `.deb` version of Google Chrome is recommended for the most reliable results.
+
+With this setup, you can efficiently capture and decrypt HTTPS traffic for troubleshooting, learning, or protocol analysis on Ubuntu.

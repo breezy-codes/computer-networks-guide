@@ -1,4 +1,4 @@
-# **Decrypt HTTPS Traffic in Wireshark On Ubuntu**
+# **Decrypt HTTPS Traffic in Wireshark On Ubuntu Linux**
 
 Being able to inspect HTTPS traffic in Wireshark is extremely useful when you're debugging APIs, analysing website behaviour, or learning how network protocols work behind the scenes. This guide walks through how to decrypt HTTPS traffic in Wireshark on Ubuntu using the `SSLKEYLOGFILE` method, no need for certificates or proxy setups.
 
@@ -38,6 +38,11 @@ After running this command, any browser launched from this terminal will log TLS
 ### **Method 2 – Permanent (All Future Terminals)**
 
 Add the environment variable to your shell configuration file (e.g., `.bashrc`) so it's set automatically for all future terminal sessions.
+
+```{admonition} Note on bash vs zsh
+:class: tip
+Here we assume you are using `bash`. If you use `zsh`, replace `.bashrc` with `.zshrc` in the instructions below. It will work the same way.
+```
 
 Open your `.bashrc` file:
 

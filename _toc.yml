@@ -8,14 +8,16 @@ parts:
     numbered: false
     chapters:
       - file: cisco/index
-        sections:
-          - file: cisco/cisco-packet-tracer-tutorial
-          - file: cisco/dhcp-guide-in-cisco
-          - file: cisco/installing-cisco-ubuntu
-          - file: cisco/installing-cisco-arch
+        title: Intro to CISCO
+      - file: cisco/cisco-packet-tracer-tutorial
+      - file: cisco/dhcp-guide-in-cisco
+      - file: cisco/installing-cisco-ubuntu
+      - file: cisco/installing-cisco-arch
   - caption: Python
     numbered: false
     chapters:
+      - file: python/index
+        file: Intro to Python
       - file: python/arp-simulator-python
       - file: python/simple-server-in-python
       - file: python/network-routing-algorithms
@@ -25,6 +27,8 @@ parts:
   - caption: Wireshark
     numbered: false
     chapters:
+      - file: wireshark/index
+        title: Intro to Wireshark
       - file: wireshark/wireshark-views
       - file: wireshark/decrypting-https-in-wireshark
       - file: wireshark/decrypting-https-ubuntu-wireshark

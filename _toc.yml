@@ -10,6 +10,7 @@ parts:
       - file: cisco/index
         title: Intro to CISCO
       - file: cisco/install-guides
+        title: Install Guides
         sections:
         - file: cisco/cisco-packet-tracer-tutorial
         - file: cisco/dhcp-guide-in-cisco

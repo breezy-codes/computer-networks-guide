@@ -9,8 +9,10 @@ parts:
     chapters:
       - file: cisco/index
         title: Intro to CISCO
-      - file: cisco/cisco-packet-tracer-tutorial
-      - file: cisco/dhcp-guide-in-cisco
+      - file: cisco/install-guides
+        sections:
+        - file: cisco/cisco-packet-tracer-tutorial
+        - file: cisco/dhcp-guide-in-cisco
       - file: cisco/installing-cisco-ubuntu
       - file: cisco/installing-cisco-arch
   - caption: Python

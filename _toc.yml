@@ -7,10 +7,12 @@ parts:
   - caption: CISCO Packet Tracer
     numbered: false
     chapters:
-      - file: cisco/cisco-packet-tracer-tutorial
-      - file: cisco/dhcp-guide-in-cisco
-      - file: cisco/installing-cisco-ubuntu
-      - file: cisco/installing-cisco-arch
+      - file: cisco/index
+        sections:
+          - file: cisco/cisco-packet-tracer-tutorial
+          - file: cisco/dhcp-guide-in-cisco
+          - file: cisco/installing-cisco-ubuntu
+          - file: cisco/installing-cisco-arch
   - caption: Python
     numbered: false
     chapters:

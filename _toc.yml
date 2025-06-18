@@ -17,7 +17,7 @@ parts:
     numbered: false
     chapters:
       - file: python/index
-        file: Intro to Python
+        title: Intro to Python
       - file: python/arp-simulator-python
       - file: python/simple-server-in-python
       - file: python/network-routing-algorithms

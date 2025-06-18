@@ -1,4 +1,4 @@
-# **CISCO Packet Tracer Tutorial**
+# CISCO Packet Tracer Tutorial
 
 Are you new to using CISCO packet tracer and not sure where to actually start? Then this tutorial is for you! I know the struggle of trying to figure out something new so I hope this helps you get your footing in using CISCO packet tracer.
 

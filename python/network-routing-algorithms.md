@@ -1,4 +1,4 @@
-# **Network Routing Algorithms**
+# Network Routing Algorithms
 
 These python scripts demonstrate two fundamental network routing algorithms: Bellman-Ford and Dijkstra. Both algorithms are used to find the shortest path in a network of routers, but they operate differently and have distinct use cases. Below are the implementations and explanations for each algorithm.
 

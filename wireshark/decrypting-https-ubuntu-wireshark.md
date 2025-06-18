@@ -1,4 +1,4 @@
-# **Decrypt HTTPS Traffic in Wireshark On Ubuntu Linux**
+# Decrypt HTTPS Traffic in Wireshark On Ubuntu Linux
 
 Being able to inspect HTTPS traffic in Wireshark is extremely useful when you're debugging APIs, analysing website behaviour, or learning how network protocols work behind the scenes. This guide walks through how to decrypt HTTPS traffic in Wireshark on Ubuntu using the `SSLKEYLOGFILE` method, no need for certificates or proxy setups.
 

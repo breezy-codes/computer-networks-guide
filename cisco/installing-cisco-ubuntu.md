@@ -1,4 +1,4 @@
-# **How to install CISCO Packet Tracer in Ubuntu**
+# How to install CISCO Packet Tracer in Ubuntu Linux
 
 ## Download CISCO Packet Tracer
 

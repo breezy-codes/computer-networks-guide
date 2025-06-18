@@ -1,4 +1,4 @@
-# **DHCP Server setup in CISCO Packet Tracer**
+# DHCP Server setup in CISCO Packet Tracer
 
 Introduction: Configuring a DHCP server is a fundamental skill for network administrators and engineers. In this blog post, we'll explore three video tutorials that walk you through DHCP server configuration using CISCO Packet Tracer. Whether you're dealing with a single switch, a router-based setup, or a complex network with multiple switches, you'll find step-by-step instructions to help you get started.
 

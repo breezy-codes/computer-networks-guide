@@ -1,4 +1,4 @@
-# **How to install CISCO Packet Tracer in Arch Linux**
+# How to install CISCO Packet Tracer in Arch Linux
 
 ## Download CISCO Packet Tracer
 

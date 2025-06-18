@@ -1,4 +1,4 @@
-# **Wireshark Custom Column Views**
+# Wireshark Custom Column Views
 
 Wireshark is a handy tool when it comes to exploring network communications by analysing the protocols and packets occurring when accessing a website on the internet. Wireshark can be a powerful tool for network professionals, cybersecurity and students. As a current university student I have made this tutorial to go over setting up different column views within Wireshark to make it easier to find the information you need.
 

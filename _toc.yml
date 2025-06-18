@@ -12,10 +12,11 @@ parts:
       - file: cisco/install-guides
         title: Install Guides
         sections:
-        - file: cisco/cisco-packet-tracer-tutorial
-        - file: cisco/dhcp-guide-in-cisco
-      - file: cisco/installing-cisco-ubuntu
-      - file: cisco/installing-cisco-arch
+        - file: cisco/installing-cisco-ubuntu
+        - file: cisco/installing-cisco-arch        
+      - file: cisco/cisco-packet-tracer-tutorial
+      - file: cisco/dhcp-guide-in-cisco
+
   - caption: Python
     numbered: false
     chapters:
@@ -27,6 +28,7 @@ parts:
         sections:
           - file: python/control-plane-bellman-ford
           - file: python/control-plane-dijkstra
+
   - caption: Wireshark
     numbered: false
     chapters:

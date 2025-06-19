@@ -2,6 +2,11 @@
 
 Being able to inspect HTTPS traffic in Wireshark is extremely useful when you're debugging APIs, analysing website behaviour, or learning how network protocols work behind the scenes. This guide walks through how to decrypt HTTPS traffic in Wireshark on Ubuntu using the `SSLKEYLOGFILE` method, no need for certificates or proxy setups.
 
+```{admonition} Handy Tip
+:class: tip
+While this tutorial is focused on Ubuntu, the same steps apply to other Linux distributions like Debian, Fedora, and Arch Linux. The commands may vary slightly based on your package manager when it comes to installing Wireshark or Google Chrome, but the overall process remains the same.
+```
+
 ---
 
 ## Part 1: Setting Up the `SSLKEYLOGFILE` Environment Variable
@@ -137,6 +142,11 @@ If you try to use Chromium installed via Snap, you'll likely see an error statin
 
 To avoid this, ensure you are using the `.deb` version of Google Chrome as described above. The Snap and Flatpak versions do not support writing to the `SSLKEYLOGFILE` due to sandboxing restrictions.
 
+```{admonition} Note for other Linux Distributions
+:class: tip
+You'll face similar issues with Snap or Flatpak versions on other distributions as well. Always prefer the `.deb` or native package version of Chrome for this purpose. For example, on Fedora, use the `.rpm` package instead, and on Arch Linux, use the AUR package for Google Chrome.
+```
+
 ### Testing the SSL Key Log File
 
 When Chrome is working correctly, visiting a few HTTPS websites will cause the `.ssl-key.log` file to populate. You can check this by running:
@@ -216,3 +226,11 @@ By using the `SSLKEYLOGFILE` method, you can decrypt and inspect HTTPS traffic i
 - The `.deb` version of Google Chrome is recommended for the most reliable results.
 
 With this setup, you can efficiently capture and decrypt HTTPS traffic for troubleshooting, learning, or protocol analysis on Ubuntu.
+
+## Watch my tutorial on the process on YouTube
+
+<div style="text-align: center;">  
+  <div style="position: relative; height: 315px; width: 560px; margin: 0 auto;">  
+    <iframe src="https://www.youtube.com/embed/iUyT4FJHIV4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
+  </div>  
+</div>

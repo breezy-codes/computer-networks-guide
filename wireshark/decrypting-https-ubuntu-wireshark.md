@@ -23,7 +23,7 @@ Set the environment variable for just your current terminal session. This is qui
 export SSLKEYLOGFILE=~/.ssl-key.log
 ```
 
-![Figure 2](../img/decrypt-wireshark-ubuntu/fig11.png)
+![Figure 2](../img/wireshark/decrypt-wireshark-ubuntu/fig11.png)
 
 After running this command, any browser launched from this terminal will log TLS keys to `~/.ssl-key.log`. The variable will be unset when you close the terminal.
 
@@ -50,7 +50,7 @@ Here we assume you are using `bash`. If you use `zsh`, replace `.bashrc` with `.
 
 Open your `.bashrc` file:
 
-![Figure 2](../img/decrypt-wireshark-ubuntu/fig2.png)
+![Figure 2](../img/wireshark/decrypt-wireshark-ubuntu/fig2.png)
 
 ```bash
 nano ~/.bashrc
@@ -62,7 +62,7 @@ Scroll to the bottom and add:
 export SSLKEYLOGFILE=~/.ssl-key.log
 ```
 
-![Figure 1](../img/decrypt-wireshark-ubuntu/fig1.png)
+![Figure 1](../img/wireshark/decrypt-wireshark-ubuntu/fig1.png)
 
 Save and exit (`CTRL + O`, then `CTRL + X`). Then apply the changes with:
 
@@ -78,7 +78,7 @@ echo $SSLKEYLOGFILE
 
 You should see the correct file path printed.
 
-![Figure 3](../img/decrypt-wireshark-ubuntu/fig3.png)
+![Figure 3](../img/wireshark/decrypt-wireshark-ubuntu/fig3.png)
 
 **Pros:**
 
@@ -131,13 +131,13 @@ Once installed, you need to launch Chrome from a terminal so it inherits the env
 
     The environment variable will already be set in all new terminals.
 
-![Figure 4](../img/decrypt-wireshark-ubuntu/fig4.png)
+![Figure 4](../img/wireshark/decrypt-wireshark-ubuntu/fig4.png)
 
 ### Important Note on Snap/Flatpak Versions
 
 If you try to use Chromium installed via Snap, you'll likely see an error stating that it couldn't open the SSL key log file.
 
-![Figure 5](../img/decrypt-wireshark-ubuntu/fig5.png)
+![Figure 5](../img/wireshark/decrypt-wireshark-ubuntu/fig5.png)
 
 To avoid this, ensure you are using the `.deb` version of Google Chrome as described above. The Snap and Flatpak versions do not support writing to the `SSLKEYLOGFILE` due to sandboxing restrictions.
 
@@ -156,7 +156,7 @@ cat ~/.ssl-key.log
 
 Or by opening the file in a text editor. You should see lines like this:
 
-![Figure 6](../img/decrypt-wireshark-ubuntu/fig6.png)
+![Figure 6](../img/wireshark/decrypt-wireshark-ubuntu/fig6.png)
 
 ---
 
@@ -175,9 +175,9 @@ Now we’ll configure Wireshark to use the SSL key log file.
 
 If you're using the file browser to locate it, make sure to enable "Show hidden files" so `.ssl-key.log` is visible.
 
-![Figure 7](../img/decrypt-wireshark-ubuntu/fig7.png)
+![Figure 7](../img/wireshark/decrypt-wireshark-ubuntu/fig7.png)
 
-![Figure 8](../img/decrypt-wireshark-ubuntu/fig8.png)
+![Figure 8](../img/wireshark/decrypt-wireshark-ubuntu/fig8.png)
 
 Click **OK** to save the changes.
 
@@ -198,7 +198,7 @@ Now you can begin capturing traffic.
 
 If everything is working, Wireshark will automatically decrypt the traffic using the key log file. You should start seeing decrypted HTTPS content.
 
-![Figure 9](../img/decrypt-wireshark-ubuntu/fig9.png)
+![Figure 9](../img/wireshark/decrypt-wireshark-ubuntu/fig9.png)
 
 To filter just the decrypted traffic, use the following display filter:
 
@@ -208,7 +208,7 @@ http2
 
 This will show you all HTTP/2 traffic, which is commonly used by modern websites. Here there is some entries for reCAPTCHA and Reddit, demonstrating that the HTTPS traffic is being captured and decrypted successfully.
 
-![Figure 10](../img/decrypt-wireshark-ubuntu/fig10.png)
+![Figure 10](../img/wireshark/decrypt-wireshark-ubuntu/fig10.png)
 
 ---
 

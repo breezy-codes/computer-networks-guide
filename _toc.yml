@@ -16,6 +16,10 @@ parts:
         - file: cisco/installing-cisco-arch   
         - file: cisco/fix-kde-dark-theme
           title: How to fix KDE Theme Issues     
+      - file: cisco/tutorial-series/index
+        title: CISCO Tutorial Series
+        sections:
+        - file: cisco/tutorial-series/tutorial1
       - file: cisco/cisco-packet-tracer-tutorial
       - file: cisco/dhcp-guide-in-cisco
 

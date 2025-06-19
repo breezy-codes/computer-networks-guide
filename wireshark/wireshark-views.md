@@ -2,7 +2,7 @@
 
 Wireshark is a handy tool when it comes to exploring network communications by analysing the protocols and packets occurring when accessing a website on the internet. Wireshark can be a powerful tool for network professionals, cybersecurity and students. As a current university student I have made this tutorial to go over setting up different column views within Wireshark to make it easier to find the information you need.
 
-![Wireshark](../img/wireshark-views/img1.png)
+![Wireshark](../img/wireshark/wireshark-views/img1.png)
 
 These columns I go over setting up are mostly for analysing `HTTP` and maybe `HTTPS` if you've set up a decryption key. Here is a link to my other blog post going over how to set up a decryption key for this.
 
@@ -22,13 +22,13 @@ Depending on your goals this might or might not be beneficial to you. Further do
 
 The first way to add columns is by right clicking the column title section then selecting column preferences.
 
-![Wireshark](../img/wireshark-views/img2.png)
+![Wireshark](../img/wireshark/wireshark-views/img2.png)
 
 From there you will be taken to the following screen where you can customise these settings.
 
-![Wireshark](../img/wireshark-views/img3.png)
+![Wireshark](../img/wireshark/wireshark-views/img3.png)
 
-![Wireshark](../img/wireshark-views/img4.png)
+![Wireshark](../img/wireshark/wireshark-views/img4.png)
 
 Now to add your first columns, press the plus button to add a new column. There is a variety of options you can select from in here depending on your needs. The two columns I will be adding is the `src port (unresolved)` and the `dest port (unresolved)`.
 
@@ -36,13 +36,13 @@ Now to add your first columns, press the plus button to add a new column. There 
 
 The second method for adding columns (my preferred) is from the frame section. If you find yourself inspecting the frames for specific information each time, you can add this as a column view instead.
 
-![Wireshark](../img/wireshark-views/img5.png)
+![Wireshark](../img/wireshark/wireshark-views/img5.png)
 
 This method allows you to find the specific information, from there you can right click and select "apply as column". You can select the information relevant to your current searches or the typical information you need to find.
 For example, I have the host as one of my columns and when I run Wireshark, I can first sort by host and check the `IP address` of the host and go straight to filtering by that `IP address`. Or if I'm analysing the `TLS protocol`, I can quickly see the handshake type that occurred or search by ports.
 These are the current filters I am using to analyse `HTTP` and `HTTPS` traffic as well as `TLS` analysis for university currently.
 
-![Wireshark](../img/wireshark-views/img6.png)
+![Wireshark](../img/wireshark/wireshark-views/img6.png)
 
 ## **How to toggle filters:**
 

@@ -14,10 +14,10 @@ Before doing anything else:
 
 1. Open your **System Settings**.
 2. Under **Appearance and Style**, select **Colours and Themes**.
-    ![Figure 2](../img/cisco-kde-theme/fig1.png)
+    ![Figure 2](../img/cisco-installs/cisco-kde-theme/fig1.png)
 3. Click on **Colours** under the **Global Theme** section.
 4. Choose a **light colour scheme** (such as Breeze Light or similar) and apply the changes.
-    ![Figure 2](../img/cisco-kde-theme/fig2.png)
+    ![Figure 2](../img/cisco-installs/cisco-kde-theme/fig2.png)
 
 This will make Packet Tracer look good **at least once**. But we’ll make it permanent in the next steps.
 
@@ -31,7 +31,7 @@ We’re going to snapshot your current (good-looking) light theme settings and i
 mkdir ~/.config-packettracer
 ```
 
-![Figure 2](../img/cisco-kde-theme/fig3.png)
+![Figure 2](../img/cisco-installs/cisco-kde-theme/fig3.png)
 
 ---
 
@@ -43,7 +43,7 @@ Now copy your current GTK theme settings to that new folder:
 cp -r ~/.config/gtk-3.0 ~/.config/gtk-4.0 ~/.config/xsettingsd ~/.config-packettracer/
 ```
 
-![Figure 2](../img/cisco-kde-theme/fig4.png)
+![Figure 2](../img/cisco-installs/cisco-kde-theme/fig4.png)
 
 You don’t need the entire contents of `~/.config`, just the theme-related bits.
 
@@ -69,7 +69,7 @@ And **replace it** with this:
 Exec=env XDG_CONFIG_HOME=/home/yourusername/.config-packettracer /usr/bin/packettracer %f
 ```
 
-![Figure 2](../img/cisco-kde-theme/fig5.png)
+![Figure 2](../img/cisco-installs/cisco-kde-theme/fig5.png)
 
 Make sure to replace `/home/yourusername` with your actual home path (e.g., `/home/breezy`).
 

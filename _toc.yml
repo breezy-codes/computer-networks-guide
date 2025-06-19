@@ -13,7 +13,9 @@ parts:
         title: Install Guides
         sections:
         - file: cisco/installing-cisco-ubuntu
-        - file: cisco/installing-cisco-arch        
+        - file: cisco/installing-cisco-arch   
+        - file: cisco/fix-kde-dark-theme
+          title: How to fix KDE Theme Issues     
       - file: cisco/cisco-packet-tracer-tutorial
       - file: cisco/dhcp-guide-in-cisco
 

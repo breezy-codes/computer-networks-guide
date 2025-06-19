@@ -16,7 +16,6 @@ To enable HTTPS decryption, you need to set the `SSLKEYLOGFILE` environment vari
 ---
 
 ### **Method 1 – Temporary (Current Terminal Only)**
-<!-- NEED TO GET A SCREENSHOT SHOWING THIS BEING DONE. NAME IT FIG11 -->
 
 Set the environment variable for just your current terminal session. This is quick and doesn't affect other terminals or future sessions.
 
@@ -215,7 +214,7 @@ This will show you all HTTP/2 traffic, which is commonly used by modern websites
 
 ## Conclusion
 
-By using the `SSLKEYLOGFILE` method, you can decrypt and inspect HTTPS traffic in Wireshark without the need for proxies or custom certificates. This approach is especially useful for debugging browser-based network activity and analyzing protocols like HTTP/2.
+By using the `SSLKEYLOGFILE` method, you can decrypt and inspect HTTPS traffic in Wireshark without the need for proxies or custom certificates. This approach is especially useful for debugging browser-based network activity and analysing protocols like HTTP/2.
 
 **Key points to remember:**
 

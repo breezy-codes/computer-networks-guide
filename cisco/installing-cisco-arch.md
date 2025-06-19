@@ -1,5 +1,7 @@
 # How to install CISCO Packet Tracer in Arch Linux
 
+This guide will walk you through the steps to install CISCO Packet Tracer on an Arch Linux system. Packet Tracer is a powerful network simulation tool widely used for learning and practicing networking concepts. It is technically available on AUR (Arch User Repository), but the installation process requires some additional steps compared to Debian-based systems.
+
 ## Download CISCO Packet Tracer
 
 To download CISCO head to the following link and download the deb package for Linux.
@@ -50,6 +52,10 @@ then once again run `makepkg -si`
 And now CISCO packet tracer is installed!
 
 ![cisco-structure](../img/install-cisco-arch/img8.png)
+
+## Theme Issues
+
+If you are using KDE Plasma, you may notice that Packet Tracer does not follow your system theme properly. This is a known issue with how Packet Tracer handles GTK-based applications in KDE. To fix this, you can follow the steps outlined in the [KDE Theme Fix Guide](../cisco/fix-kde-dark-theme.md).
 
 ## Video: Installing CISCO Packet Tracer in Arch Linux
 

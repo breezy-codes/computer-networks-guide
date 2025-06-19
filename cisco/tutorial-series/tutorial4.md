@@ -37,7 +37,7 @@ PC2 -------|         |         |         |         |         |------- PC4
 * **VLANs (Virtual LANs):** Used to logically segment the network at Layer 2, isolating broadcast domains and improving security and performance.
 * **Router Subinterfaces:** Logical interfaces configured on a single physical router port, each assigned to a specific VLAN, allowing the router to route traffic between VLANs.
 
-> *Insert diagram of the physical topology here*
+![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
 
 ---
 
@@ -59,8 +59,7 @@ In Cisco Packet Tracer, select and place the following devices on your workspace
 * Place **PC3** and **PC4** near **Switch1** and label them as **Department B**.
 * Clearly label each device for easy identification.
 
-> **Screenshot Placeholder:**  
-> *Insert a screenshot here showing the initial placement of all devices in Packet Tracer, with labels visible.*
+![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
 
 ---
 
@@ -75,8 +74,7 @@ Use **Copper Straight-Through** cables for all device-to-switch connections:
 * **PC3** to `fa0/1` on **Switch1**
 * **PC4** to `fa0/2` on **Switch1**
 
-> **Screenshot Placeholder:**  
-> *Insert a screenshot here showing PCs connected to their respective switches.*
+![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
 
 #### Connecting Switches to Router
 
@@ -85,16 +83,14 @@ Use **Copper Straight-Through** cables for switch-to-router connections:
 * **Switch0** `fa0/24` to **Router0** `gig0/0`
 * **Switch1** `fa0/24` to **Router0** `gig0/1`
 
-> **Screenshot Placeholder:**  
-> *Insert a screenshot here showing trunk links between switches and router.*
+![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
 
 #### Cabling Tips
 
 * Double-check that each PC is connected to the correct switch port.
 * Avoid using crossover cables; straight-through is standard for these connections in Packet Tracer.
 
-> **Screenshot Placeholder:**  
-> *Insert a final screenshot showing the complete cabled topology, with all connections visible and labeled.*
+![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
 
 ```{admonition} Note
 :class: note
@@ -128,8 +124,7 @@ In this section, you’ll configure VLANs on both switches, assign the correct p
     exit
     ```
 
-> **Screenshot Placeholder:**  
-> *Take a screenshot showing the VLAN 10 configuration on Switch0.*
+![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
 
 ---
 
@@ -150,8 +145,7 @@ In this section, you’ll configure VLANs on both switches, assign the correct p
     exit
     ```
 
-> **Screenshot Placeholder:**  
-> *Take a screenshot showing the VLAN 20 configuration on Switch1.*
+![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
 
 ---
 
@@ -170,8 +164,7 @@ Assign the appropriate switch ports to their respective VLANs. This ensures that
     exit
     ```
 
-> **Screenshot Placeholder:**  
-> *Take a screenshot showing fa0/1 and fa0/2 assigned to VLAN 10 on Switch0.*
+![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
 
 ---
 
@@ -186,8 +179,7 @@ Assign the appropriate switch ports to their respective VLANs. This ensures that
     exit
     ```
 
-> **Screenshot Placeholder:**  
-> *Take a screenshot showing fa0/1 and fa0/2 assigned to VLAN 20 on Switch1.*
+![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
 
 ---
 
@@ -201,8 +193,7 @@ After configuration, verify that the VLANs and are set up correctly.
 show vlan brief
 ```
 
-> **Screenshot Placeholder:**  
-> *Take screenshots of the output for both commands to confirm VLAN membership and trunk status.*
+![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
 
 ---
 
@@ -215,8 +206,7 @@ end
 write memory
 ```
 
-> **Screenshot Placeholder:**  
-> *Take a screenshot showing the configuration being saved.*
+![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
 
 ---
 
@@ -241,7 +231,12 @@ ip address 192.168.10.1 255.255.255.0
 description Dept_A_Gateway
 no shutdown
 exit
+
+end
+write memory
 ```
+
+![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
 
 #### For VLAN 20 (Department B):
 
@@ -251,16 +246,14 @@ ip address 192.168.20.1 255.255.255.0
 description Dept_B_Gateway
 no shutdown
 exit
-```
 
-No VLAN encapsulation is needed because each interface handles only one VLAN.
-
-Make sure to save your configuration:
-
-```bash
 end
 write memory
 ```
+
+![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
+
+No VLAN encapsulation is needed because each interface handles only one VLAN.
 
 ---
 
@@ -278,8 +271,7 @@ Each PC needs a static IP address and default gateway to enable communication wi
    * **Subnet Mask**: `255.255.255.0`
    * **Default Gateway**: `192.168.10.1`
 
-> **Screenshot Placeholder:**
-> *Insert screenshot showing the IP configuration window on PC1.*
+![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
 
 ---
 
@@ -313,8 +305,7 @@ After completing all configurations, verify connectivity between devices to ensu
     ping 192.168.10.12
     ```
 
-    > **Screenshot Placeholder:**  
-    > *Insert screenshot showing successful ping from PC1 to PC2.*
+    ![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
 
 * **PC3 → PC4:**  
     On PC3, ping PC4’s IP address (`192.168.20.14`).  
@@ -323,8 +314,7 @@ After completing all configurations, verify connectivity between devices to ensu
     ping 192.168.20.14
     ```
 
-    > **Screenshot Placeholder:**  
-    > *Insert screenshot showing successful ping from PC3 to PC4.*
+    ![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
 
 #### 2. Test Inter-VLAN Connectivity
 
@@ -335,8 +325,7 @@ After completing all configurations, verify connectivity between devices to ensu
     ping 192.168.20.13
     ```
 
-    > **Screenshot Placeholder:**  
-    > *Insert screenshot showing successful ping from PC1 to PC3.*
+    ![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
 
 * **PC2 → PC4:**  
     On PC2, ping PC4’s IP address (`192.168.20.14`).  
@@ -345,8 +334,7 @@ After completing all configurations, verify connectivity between devices to ensu
     ping 192.168.20.14
     ```
 
-    > **Screenshot Placeholder:**  
-    > *Insert screenshot showing successful ping from PC2 to PC4.*
+    ![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
 
 * **PC3 → PC1:**  
     On PC3, ping PC1’s IP address (`192.168.10.11`).
@@ -355,10 +343,12 @@ After completing all configurations, verify connectivity between devices to ensu
     ping 192.168.10.11
     ```
 
-    > **Screenshot Placeholder:**  
-    > *Insert screenshot showing successful ping from PC3 to PC1.*
+    ![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
 
-> If any ping fails, double-check IP configurations, VLAN assignments, and router interface settings.
+```{admonition} Note
+:class: note
+If any ping fails, double-check IP configurations, VLAN assignments, and router interface settings.
+```
 
 ---
 
@@ -372,8 +362,7 @@ Check VLAN and port assignments:
 show vlan brief
 ```
 
-> **Screenshot Placeholder:**  
-> *Insert screenshot of `show vlan brief` output.*
+![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
 
 #### On Router
 
@@ -383,8 +372,7 @@ Check interface status and IP assignments:
 show ip interface brief
 ```
 
-> **Screenshot Placeholder:**  
-> *Insert screenshot of `show ip interface brief` output.*
+![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
 
 ---
 

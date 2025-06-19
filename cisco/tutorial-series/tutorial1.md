@@ -1,4 +1,4 @@
-# Tutorial 1 – Basic Networking  
+# 1 – Basic Networking  
 
 This tutorial is the first in a series designed to introduce you to networking concepts using Cisco Packet Tracer. It will guide you through creating a simple network with two PCs connected via a switch, configuring both IPv4 and IPv6 addresses, and testing connectivity using the `ping` command.
 

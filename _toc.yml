@@ -22,6 +22,8 @@ parts:
         - file: cisco/tutorial-series/tutorial1
         - file: cisco/tutorial-series/tutorial2
         - file: cisco/tutorial-series/tutorial3
+        - file: cisco/tutorial-series/tutorial4
+        - file: cisco/tutorial-series/tutorial5
       - file: cisco/cisco-packet-tracer-tutorial
       - file: cisco/dhcp-guide-in-cisco
 

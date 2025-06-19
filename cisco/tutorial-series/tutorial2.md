@@ -1,4 +1,4 @@
-# Tutorial 2 – Configuring Multi-Switch Communication  
+# 2 – Configuring Multi-Switch Communication  
 
 This tutorial is the second in a series focused on Cisco networking concepts, specifically using Cisco Packet Tracer. In this lesson, we will connect two PCs through two switches, demonstrating key concepts such as port activation, MAC address learning, and VLAN configuration.
 

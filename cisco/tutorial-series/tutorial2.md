@@ -186,4 +186,3 @@ In this tutorial, you have:
 - Assigned static IPv4 addresses in the same subnet
 - Verified port activation and VLAN assignment on switches
 - Successfully tested communication across a multi-switch setup
-

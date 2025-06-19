@@ -20,6 +20,7 @@ parts:
         title: CISCO Tutorial Series
         sections:
         - file: cisco/tutorial-series/tutorial1
+        - file: cisco/tutorial-series/tutorial2
       - file: cisco/cisco-packet-tracer-tutorial
       - file: cisco/dhcp-guide-in-cisco
 

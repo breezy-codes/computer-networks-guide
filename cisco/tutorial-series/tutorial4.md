@@ -26,9 +26,9 @@ The network topology is designed to demonstrate how inter-VLAN routing is achiev
 
 ```bash
            +---------+         +---------+         +---------+
-PC1 -------|         |         |         |         |         |------- PC3
+PC0 -------|         |         |         |         |         |------- PC2
            | Switch0 |--- fa0/1| Router0 |fa0/2 ---| Switch1 |
-PC2 -------|         |         |         |         |         |------- PC4
+PC1 -------|         |         |         |         |         |------- PC3
            +---------+         +---------+         +---------+
 ```
 
@@ -49,14 +49,14 @@ In Cisco Packet Tracer, select and place the following devices on your workspace
 
 * **Router:** Cisco 2911 (or a similar model that supports subinterfaces)
 * **Switches:** Two Cisco 2960 switches (Switch0 and Switch1)
-* **End Devices:** Four generic PCs (PC1, PC2, PC3, PC4)
+* **End Devices:** Four generic PCs (PC0, PC1, PC2, PC3)
 
 #### Labelling and Placement Guidelines
 
 * Place **Switch0** and **Switch1** near the center of your workspace.
 * Position **Router0** between the two switches to represent its central role in routing.
-* Place **PC1** and **PC2** near **Switch0** and label them as **Department A**.
-* Place **PC3** and **PC4** near **Switch1** and label them as **Department B**.
+* Place **PC0** and **PC1** near **Switch0**.
+* Place **PC2** and **PC3** near **Switch1**.
 * Clearly label each device for easy identification.
 
 ![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
@@ -69,12 +69,12 @@ In Cisco Packet Tracer, select and place the following devices on your workspace
 
 Use **Copper Straight-Through** cables for all device-to-switch connections:
 
-* **PC1** to `fa0/1` on **Switch0**
-* **PC2** to `fa0/2` on **Switch0**
-* **PC3** to `fa0/1` on **Switch1**
-* **PC4** to `fa0/2` on **Switch1**
+* **PC0** to `fa0/1` on **Switch0**
+* **PC1** to `fa0/2` on **Switch0**
+* **PC2** to `fa0/1` on **Switch1**
+* **PC3** to `fa0/2` on **Switch1**
 
-![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
+![Figure 2](../../img/cisco-tutorials/tutorial-4/fig2.png)
 
 #### Connecting Switches to Router
 
@@ -83,14 +83,12 @@ Use **Copper Straight-Through** cables for switch-to-router connections:
 * **Switch0** `fa0/24` to **Router0** `gig0/0`
 * **Switch1** `fa0/24` to **Router0** `gig0/1`
 
-![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
+![Figure 2](../../img/cisco-tutorials/tutorial-4/fig3.png)
 
 #### Cabling Tips
 
 * Double-check that each PC is connected to the correct switch port.
 * Avoid using crossover cables; straight-through is standard for these connections in Packet Tracer.
-
-![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
 
 ```{admonition} Note
 :class: note
@@ -101,118 +99,93 @@ Proper device placement and accurate cabling are crucial for the success of the 
 
 ## Part 3 – VLAN Configuration and Port Assignment
 
-In this section, you’ll configure VLANs on both switches, assign the correct ports to each VLAN, and set up links between the switches and the router.
+In this section, you’ll configure VLANs, assign access ports, and save the configuration on each switch.
 
 ---
 
-### Step 3.1 – Create VLANs
-
-#### On Switch0 (for Department A):
+### On Switch0 (Department A)
 
 1. Enter privileged EXEC mode and global configuration mode:
 
-    ```bash
-    enable
-    configure terminal
-    ```
+   ```bash
+   enable
+   configure terminal
+   ```
 
 2. Create VLAN 10 and name it:
 
-    ```bash
-    vlan 10
-    name Dept_A
-    exit
-    ```
+   ```bash
+   vlan 10
+   name Dept_A
+   exit
+   ```
 
-![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
+3. Assign all access ports on the switch (e.g., `fa0/1` to `fa0/24`) to VLAN 10:
+
+   ```bash
+   interface range fa0/1 - 24
+   switchport mode access
+   switchport access vlan 10
+   exit
+   exit
+   write memory
+   ```
+
+   ![Figure 2](../../img/cisco-tutorials/tutorial-4/fig4.png)
+
+4. Verify VLAN configuration:
+
+   ```bash
+   show vlan brief
+   ```
+
+   ![Figure 2](../../img/cisco-tutorials/tutorial-4/fig5.png)
 
 ---
 
-#### On Switch1 (for Department B):
+### On Switch1 (Department B)
 
 1. Enter privileged EXEC mode and global configuration mode:
 
-    ```bash
-    enable
-    configure terminal
-    ```
+   ```bash
+   enable
+   configure terminal
+   ```
 
 2. Create VLAN 20 and name it:
 
-    ```bash
-    vlan 20
-    name Dept_B
-    exit
-    ```
+   ```bash
+   vlan 20
+   name Dept_B
+   exit
+   ```
 
-![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
+3. Assign all access ports on the switch (e.g., `fa0/1` to `fa0/24`) to VLAN 20:
 
----
+   ```bash
+   interface range fa0/1 - 24
+   switchport mode access
+   switchport access vlan 20
+   exit
+   exit
+   write memory
+   ```
 
-### Step 3.2 – Assign Access Ports to VLANs
+   ![Figure 2](../../img/cisco-tutorials/tutorial-4/fig5.png)
 
-Assign the appropriate switch ports to their respective VLANs. This ensures that devices connected to these ports are members of the correct VLAN.
+4. Verify VLAN configuration:
 
-#### On Switch0 (PC1 and PC2 to VLAN 10):
+   ```bash
+   show vlan brief
+   ```
 
-1. Select the interfaces for PC1 and PC2:
-
-    ```bash
-    interface fa0/24
-    switchport mode access
-    switchport access vlan 10
-    exit
-    ```
-
-![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
-
----
-
-#### On Switch1 (PC3 and PC4 to VLAN 20):
-
-1. Select the interfaces for PC3 and PC4:
-
-    ```bash
-    interface fa0/24
-    switchport mode access
-    switchport access vlan 20
-    exit
-    ```
-
-![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
-
----
-
-### Step 3.3 – Verify VLAN Configuration
-
-After configuration, verify that the VLANs and are set up correctly.
-
-#### On both switches, use:
-
-```bash
-show vlan brief
-```
-
-![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
-
----
-
-### Step 3.4 – Save Your Configurations
-
-To ensure your changes persist after a reboot, save the configuration:
-
-```bash
-end
-write memory
-```
-
-![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
+   ![Figure 2](../../img/cisco-tutorials/tutorial-4/fig6.png)
 
 ---
 
 ```{admonition} Note
 :class: note
-If you encounter issues later, revisit these steps and screenshots to confirm your VLAN and port assignments are correct.
+If you encounter issues later, revisit these steps to confirm your VLAN and port assignments are correct.
 ```
 
 ---
@@ -223,7 +196,16 @@ Instead of using subinterfaces and trunk links (we will cover this in a later tu
 
 ### Step 4.1 – Configure Router Interfaces on Router0
 
+Start by entering into the cli of **Router0**:
+
+```bash
+enable
+conf t
+```
+
 #### For VLAN 10 (Department A):
+
+Then configure the interface for VLAN 10:
 
 ```bash
 interface gig0/0
@@ -236,11 +218,14 @@ end
 write memory
 ```
 
-![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
+![Figure 2](../../img/cisco-tutorials/tutorial-4/fig7.png)
 
 #### For VLAN 20 (Department B):
 
+Next, configure the interface for VLAN 20:
+
 ```bash
+conf t
 interface gig0/1
 ip address 192.168.20.1 255.255.255.0
 description Dept_B_Gateway
@@ -251,7 +236,7 @@ end
 write memory
 ```
 
-![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
+![Figure 2](../../img/cisco-tutorials/tutorial-4/fig8.png)
 
 No VLAN encapsulation is needed because each interface handles only one VLAN.
 
@@ -261,9 +246,9 @@ No VLAN encapsulation is needed because each interface handles only one VLAN.
 
 Each PC needs a static IP address and default gateway to enable communication within and across VLANs.
 
-### Step 5.1 – Configure PC1 IPv4 Settings
+### Step 5.1 – Configure PC0 IPv4 Settings
 
-1. Click on **PC1**.
+1. Click on **PC0**.
 2. Navigate to **Desktop** → **IP Configuration**.
 3. Enter the following:
 
@@ -271,7 +256,7 @@ Each PC needs a static IP address and default gateway to enable communication wi
    * **Subnet Mask**: `255.255.255.0`
    * **Default Gateway**: `192.168.10.1`
 
-![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
+![Figure 2](../../img/cisco-tutorials/tutorial-4/fig9.png)
 
 ---
 
@@ -281,12 +266,16 @@ Use the table below to configure the remaining devices:
 
 | PC  | VLAN    | IP Address      | Subnet Mask     | Default Gateway |
 | --- | ------- | --------------- | --------------- | --------------- |
-| PC1 | VLAN 10 | `192.168.10.11` | `255.255.255.0` | `192.168.10.1`  |
-| PC2 | VLAN 10 | `192.168.10.12` | `255.255.255.0` | `192.168.10.1`  |
-| PC3 | VLAN 20 | `192.168.20.13` | `255.255.255.0` | `192.168.20.1`  |
-| PC4 | VLAN 20 | `192.168.20.14` | `255.255.255.0` | `192.168.20.1`  |
+| PC0 | VLAN 10 | `192.168.10.11` | `255.255.255.0` | `192.168.10.1`  |
+| PC1 | VLAN 10 | `192.168.10.12` | `255.255.255.0` | `192.168.10.1`  |
+| PC2 | VLAN 20 | `192.168.20.13` | `255.255.255.0` | `192.168.20.1`  |
+| PC3 | VLAN 20 | `192.168.20.14` | `255.255.255.0` | `192.168.20.1`  |
 
 Repeat **Step 5.1** on each PC, entering the values from the table above.
+
+All PCs should now be configured with their respective IP addresses and gateways, and all arrows should be green, indicating successful configuration.
+
+![Figure 2](../../img/cisco-tutorials/tutorial-4/fig10.png)
 
 ---
 
@@ -298,81 +287,59 @@ After completing all configurations, verify connectivity between devices to ensu
 
 #### 1. Test Intra-VLAN Connectivity
 
-* **PC1 → PC2:**  
-    Open the command prompt on PC1 and ping PC2’s IP address (`192.168.10.12`).  
+* **PC0 → PC1:**  
+    Open the command prompt on PC0 and ping PC1’s IP address (`192.168.10.12`).  
 
     ```bash
     ping 192.168.10.12
     ```
 
-    ![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
+    ![Figure 2](../../img/cisco-tutorials/tutorial-4/fig11.png)
 
-* **PC3 → PC4:**  
-    On PC3, ping PC4’s IP address (`192.168.20.14`).  
+* **PC2 → PC3:**  
+    On PC2, ping PC3’s IP address (`192.168.20.14`).  
 
     ```bash
     ping 192.168.20.14
     ```
 
-    ![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
+    ![Figure 2](../../img/cisco-tutorials/tutorial-4/fig12.png)
 
 #### 2. Test Inter-VLAN Connectivity
 
-* **PC1 → PC3:**  
-    On PC1, ping PC3’s IP address (`192.168.20.13`).  
+* **PC0 → PC2:**  
+    On PC0, ping PC2’s IP address (`192.168.20.13`).  
 
     ```bash
     ping 192.168.20.13
     ```
 
-    ![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
+    ![Figure 2](../../img/cisco-tutorials/tutorial-4/fig13.png)
 
-* **PC2 → PC4:**  
-    On PC2, ping PC4’s IP address (`192.168.20.14`).  
+    Note here how the first ping failed, but subsequent pings were successful. This is a common behaviour in networks due to the initial ARP request (which we will cover in a later tutorial).
+
+* **PC1 → PC3:**  
+    On PC1, ping PC3’s IP address (`192.168.20.14`).  
 
     ```bash
     ping 192.168.20.14
     ```
 
-    ![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
+    ![Figure 2](../../img/cisco-tutorials/tutorial-4/fig14.png)
 
-* **PC3 → PC1:**  
-    On PC3, ping PC1’s IP address (`192.168.10.11`).
+* **PC3 → PC0:**  
+    On PC3, ping PC0’s IP address (`192.168.10.11`).
   
     ```bash
     ping 192.168.10.11
     ```
 
-    ![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
+    ![Figure 2](../../img/cisco-tutorials/tutorial-4/fig15.png)
 
 ```{admonition} Note
 :class: note
-If any ping fails, double-check IP configurations, VLAN assignments, and router interface settings.
+If any ping fails for all 4 attempts, double-check IP configurations, VLAN assignments, and router interface settings.
 ```
-
----
-
-### Step 6.2 – Useful Troubleshooting Commands
-
-#### On Switches
-
-Check VLAN and port assignments:
-
-```bash
-show vlan brief
-```
-
-![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
-
-#### On Router
-
-Check interface status and IP assignments:
-
-```bash
-show ip interface brief
-```
-
-![Figure 2](../../img/cisco-tutorials/tutorial-4/fig1.png)
 
 ---
 

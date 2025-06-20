@@ -69,6 +69,8 @@ And **replace it** with this:
 Exec=env XDG_CONFIG_HOME=/home/yourusername/.config-packettracer /usr/bin/packettracer %f
 ```
 
+### If the file is empty/not found
+
 If this file is empty, you can create it with the following content:
 
 ```ini

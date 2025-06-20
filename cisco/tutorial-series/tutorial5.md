@@ -1,6 +1,6 @@
 # 5 – Understanding ARP in Cisco Packet Tracer
 
-This tutorial builds upon [**Tutorial 4 – Inter-VLAN Routing**](../cisco/tutorial-series/tutorial4) and focuses on a key Layer 2 concept: the **Address Resolution Protocol (ARP)**. ARP is essential for devices to communicate within a local network by resolving IP addresses to MAC addresses.
+This tutorial builds upon [**Tutorial 4 – Inter-VLAN Routing**](../tutorial-series/tutorial4) and focuses on a key Layer 2 concept: the **Address Resolution Protocol (ARP)**. ARP is essential for devices to communicate within a local network by resolving IP addresses to MAC addresses.
 
 ---
 
@@ -35,7 +35,7 @@ Ensure all PCs have their IP settings configured and can ping each other as per 
 
 To check the ARP table on a PC:
 
-1. Click on **PC1**
+1. Click on **PC0**
 2. Go to **Desktop** → **Command Prompt**
 3. Type the following:
 
@@ -43,7 +43,7 @@ To check the ARP table on a PC:
    arp -a
    ```
 
-   ![Figure 2](../../img/cisco-tutorials/tutorial-5/fig1.png)
+   ![Figure 2](../../img/cisco-tutorials/tutorial-5/fig2.png)
 
 This will show the current ARP table. If the table is empty, no local communication has happened yet.
 
@@ -62,7 +62,7 @@ Now let’s populate the ARP table:
    ping 192.168.10.12
    ```
 
-   ![Figure 2](../../img/cisco-tutorials/tutorial-5/fig1.png)
+   ![Figure 2](../../img/cisco-tutorials/tutorial-5/fig3.png)
 
 2. Then run:
 
@@ -70,11 +70,11 @@ Now let’s populate the ARP table:
    arp -a
    ```
 
-   ![Figure 2](../../img/cisco-tutorials/tutorial-5/fig1.png)
+   ![Figure 2](../../img/cisco-tutorials/tutorial-5/fig4.png)
 
 You’ll now see the MAC address of PC2 in the table, mapped to its IP.
 
-You can repeat this process on **PC3** and **PC4**, or try pinging across VLANs (e.g., PC1 → PC3) to see the **router's MAC** appear in the table instead of the end device’s MAC.
+You can repeat this process on **PC2** and **PC3**, or try pinging across VLANs (e.g., PC1 → PC3) to see the **router's MAC** appear in the table instead of the end device’s MAC.
 
 ---
 
@@ -98,7 +98,7 @@ You can also view ARP entries on the router:
    show ip arp
    ```
 
-![Figure 2](../../img/cisco-tutorials/tutorial-5/fig1.png)
+![Figure 2](../../img/cisco-tutorials/tutorial-5/fig5.png)
 
 This will display the ARP table of the router, including connected devices.
 
@@ -110,7 +110,7 @@ This will display the ARP table of the router, including connected devices.
 
 To clear the ARP cache on a PC in Packet Tracer:
 
-1. Click on **PC1**
+1. Click on **PC0**
 2. Go to **Desktop** → **Command Prompt**
 3. Type:
 
@@ -118,45 +118,49 @@ To clear the ARP cache on a PC in Packet Tracer:
    arp -d
    ```
 
-   ![Figure 2](../../img/cisco-tutorials/tutorial-5/fig1.png)
-
 Then check with:
 
 ```bash
 arp -a
 ```
 
-![Figure 2](../../img/cisco-tutorials/tutorial-5/fig1.png)
-
-### Step 5.2 – On the Router
-
-1. On **Router0**, you can clear entries individually:
-
-   ```bash
-   clear arp-cache
-   ```
-
-   ![Figure 2](../../img/cisco-tutorials/tutorial-5/fig1.png)
-
-Confirm by running `show ip arp` again.
-
-![Figure 2](../../img/cisco-tutorials/tutorial-5/fig1.png)
+![Figure 2](../../img/cisco-tutorials/tutorial-5/fig6.png)
 
 ---
 
 ## Part 6 – Observing ARP in Simulation Mode
 
-1. Switch Packet Tracer to **Simulation Mode** (bottom right corner).
-2. From **PC1**, **ping PC2**.
-3. Step through the simulation using **Capture / Forward**.
+To clearly observe the ARP process in Packet Tracer’s Simulation Mode, follow these steps:
 
-> You’ll see:
+```{admonition} Note on Simulation Mode
+:class: note
+You can refer back to [tutorial 3](../tutorial-series/tutorial3.md) for a refresher on using Simulation Mode in Packet Tracer.
+```
+
+1. **Switch to Simulation Mode:** Click the **Simulation** button at the bottom right corner of Packet Tracer.
+2. **Clear the ARP Cache:** On **PC1**, open the **Desktop** → **Command Prompt** and type:
+
+   ```bash
+   arp -d
+   ```
+
+   This ensures the ARP table is empty, so you’ll see the ARP process from the start.
+
+3. **Send a Ping:** From **PC1**, ping **PC2**:
+
+   ```bash
+   ping 192.168.10.12
+   ```
+
+4. **Step Through the Simulation:** Use the **Capture / Forward** button to advance packet by packet.
+
+> You’ll observe:
 >
-> * An **ARP Request** packet broadcast
-> * An **ARP Reply** packet sent back
-> * Then the actual **ICMP Echo Request** and **Reply** (ping)
+> * An **ARP Request** packet broadcast to the network
+> * An **ARP Reply** packet sent back from PC2
+> * The subsequent **ICMP Echo Request** and **Reply** (the actual ping)
 
-![Figure 2](../../img/cisco-tutorials/tutorial-5/fig1.png)
+This process lets you visualise how ARP works before any communication occurs.
 
 ---
 

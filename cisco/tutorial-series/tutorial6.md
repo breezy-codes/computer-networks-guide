@@ -16,10 +16,7 @@ MAC addresses are usually displayed in hexadecimal, like:
 
 They are used by switches to identify which device is connected to which port.
 
-```{admonition} Key Concept
-:class: tip
-MAC addresses are permanent hardware identifiers, unlike IP addresses which can change. Switches use MAC addresses to build forwarding tables and reduce unnecessary broadcast traffic.
-```
+> **Mac Addresses** are permanent hardware identifiers, unlike IP addresses which can change. Switches use MAC addresses to build forwarding tables and reduce unnecessary broadcast traffic.
 
 ---
 
@@ -61,10 +58,7 @@ The **Physical Address** listed is PC1’s MAC address.
 
 Repeat this process on **PC2**, **PC3**, and **PC4** to confirm each has a unique MAC.
 
-```{admonition} Note
-:class: note
-MAC addresses are unique per interface. If a device has multiple NICs, each will have a different MAC address.
-```
+> MAC addresses are unique per interface. If a device has multiple NICs, each will have a different MAC address.
 
 ---
 

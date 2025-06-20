@@ -69,6 +69,26 @@ And **replace it** with this:
 Exec=env XDG_CONFIG_HOME=/home/yourusername/.config-packettracer /usr/bin/packettracer %f
 ```
 
+```{admonition} Note
+:class: note
+
+If this file is empty, you can create it with the following content:
+
+    ```ini
+    [Desktop Entry]
+    Type=Application
+    Exec=env XDG_CONFIG_HOME=/home/YOURUSERNAME/.config-packettracer /usr/bin/packettracer %f
+    Name=Packet Tracer 8.2.2
+    Icon=/usr/lib/packettracer/art/app.png
+    Terminal=false
+    StartupNotify=true
+    MimeType=application/x-pkt;application/x-pka;application/x-pkz;application/x-pks;application/x-pksz;
+    Categories=Network;
+    ```
+
+Just make sure to replace `YOURUSERNAME` with your actual username.
+```
+
 ![Figure 2](../img/cisco-installs/cisco-kde-theme/fig5.png)
 
 Make sure to replace `/home/yourusername` with your actual home path (e.g., `/home/breezy`).

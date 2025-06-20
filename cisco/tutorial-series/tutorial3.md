@@ -1,6 +1,6 @@
 # 3 – Exploring Simulation Mode in Cisco Packet Tracer
 
-This tutorial continues from where we left off in [Tutorial 2](../cisco/tutorial-series/tutorial2). You’ve successfully connected two PCs through two switches, now it’s time to **see how the data actually travels** using **Simulation Mode** in Cisco Packet Tracer.
+This tutorial continues from where we left off in [Tutorial 2](../tutorial-series/tutorial2). You’ve successfully connected two PCs through two switches, now it’s time to **see how the data actually travels** using **Simulation Mode** in Cisco Packet Tracer.
 
 Simulation Mode lets you observe network activity step by step. It’s a powerful learning tool that helps you understand what happens during ARP requests, pings, and frame forwarding across switches.
 

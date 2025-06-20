@@ -16,8 +16,8 @@ This process is automatic and often hidden behind the scenes – but we can obse
 
 We will use the network built in **Tutorial 4**. You should have:
 
-* **PC1 and PC2** in VLAN 10 (Subnet `192.168.10.0/24`)
-* **PC3 and PC4** in VLAN 20 (Subnet `192.168.20.0/24`)
+* **PC0 and PC1** in VLAN 10 (Subnet `192.168.10.0/24`)
+* **PC2 and PC3** in VLAN 20 (Subnet `192.168.20.0/24`)
 * A router (Router0) configured with:
 
   * `Gig0/0` → `192.168.10.1`
@@ -46,9 +46,6 @@ To check the ARP table on a PC:
    ![Figure 2](../../img/cisco-tutorials/tutorial-5/fig2.png)
 
 This will show the current ARP table. If the table is empty, no local communication has happened yet.
-
-> **Screenshot Placeholder:**
-> *Insert screenshot of empty ARP table on PC1.*
 
 ---
 

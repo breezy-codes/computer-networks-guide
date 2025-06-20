@@ -1,6 +1,6 @@
 # 6 – Understanding MAC Addresses in Cisco Packet Tracer
 
-This tutorial builds upon [**Tutorial 5 – Understanding ARP**](../cisco/tutorial-series/tutorial5) and explores how **MAC (Media Access Control) addresses** work in a switched network. MAC addresses are essential for Ethernet communication and play a key role in how switches forward frames.
+This tutorial builds upon [**Tutorial 5 – Understanding ARP**](../tutorial-series/tutorial5) and explores how **MAC (Media Access Control) addresses** work in a switched network. MAC addresses are essential for Ethernet communication and play a key role in how switches forward frames.
 
 ---
 
@@ -25,10 +25,10 @@ MAC addresses are permanent hardware identifiers, unlike IP addresses which can 
 
 ## Part 2 – Use the Existing Network
 
-We’ll use the same network from **Tutorial 4**, which includes:
+We’ll use the same network from **Tutorial 4 and 5**, which includes:
 
-* **PC1 and PC2** in VLAN 10 (`192.168.10.0/24`)
-* **PC3 and PC4** in VLAN 20 (`192.168.20.0/24`)
+* **PC0 and PC1** in VLAN 10 (`192.168.10.0/24`)
+* **PC2 and PC3** in VLAN 20 (`192.168.20.0/24`)
 * Two switches: **Switch0** and **Switch1**
 * A router with the following configuration:
 
@@ -47,7 +47,7 @@ Every NIC has a MAC address. Let’s view them from the PC side.
 
 ### Step 3.1 – View PC1’s MAC Address
 
-1. Click on **PC1**
+1. Click on **PC0**
 2. Go to **Desktop** → **Command Prompt**
 3. Type:
 
@@ -104,11 +104,13 @@ If the table is empty, that means no frames have been seen yet.
 
 We’ll now generate some traffic so the switch can learn MAC addresses.
 
-1. From **PC1**, ping **PC2**:
+1. From **PC0**, ping **PC1**:
 
    ```bash
    ping 192.168.10.12
    ```
+
+   ![Figure 4](../../img/cisco-tutorials/tutorial-6/fig4.png)
 
 2. Return to **Switch0** and re-run:
 
@@ -116,11 +118,11 @@ We’ll now generate some traffic so the switch can learn MAC addresses.
    show mac address-table
    ```
 
-   ![Figure 4](../../img/cisco-tutorials/tutorial-6/fig4.png)
+   ![Figure 4](../../img/cisco-tutorials/tutorial-6/fig5.png)
 
 You should now see MAC addresses listed with associated switch ports.
 
-Repeat the same process for **Switch1** by pinging from **PC3** to **PC4**.
+You can repeat the same process for **Switch1** by pinging from **PC3** to **PC4**.
 
 ```{admonition} Tip
 :class: tip
@@ -131,7 +133,7 @@ The MAC address table updates dynamically. When the switch sees a new MAC on a p
 
 ## Part 5 – Clearing the MAC Address Table
 
-Switches age out unused MAC entries, but you can clear them manually to test learning behavior.
+Switches age out unused MAC entries, but you can clear them manually to test learning behaviour.
 
 ### Step 5.1 – On Switch0
 
@@ -146,8 +148,6 @@ Switches age out unused MAC entries, but you can clear them manually to test lea
    ```bash
    clear mac address-table dynamic
    ```
-
-   ![Figure 5](../../img/cisco-tutorials/tutorial-6/fig5.png)
 
 3. Confirm the table is empty:
 
@@ -167,27 +167,23 @@ You can observe MAC learning in real time using Packet Tracer’s **Simulation M
 
 1. Switch to **Simulation Mode** (bottom right corner)
 
-2. From **PC1**, open the **Command Prompt** and type:
+2. From **PC0**, open the **Command Prompt** and type:
 
    ```bash
    ping 192.168.10.12
    ```
 
-   ![Figure 7](../../img/cisco-tutorials/tutorial-6/fig7.png)
-
 3. Press the **"Capture / Forward"** button repeatedly to step through the simulation.
-
-   ![Figure 8](../../img/cisco-tutorials/tutorial-6/fig8.png)
 
 You’ll see:
 
-* An Ethernet frame from PC1
-* The switch learning PC1’s MAC on the inbound port
+* An Ethernet frame from PC0
+* The switch learning PC0’s MAC on the inbound port
 * The frame being forwarded only to the correct destination port
 
 ```{admonition} Tip
 :class: tip
-Only the **first frame** is broadcast if the switch hasn’t learned the destination MAC. Once both MACs are in the table, further communication is direct and efficient.
+Only the **first frame** is broadcast if the switch hasn’t learned the destination MAC. Once both MACs are in the table, further communication is direct and efficient. This is also why the first ping may take longer or fail if the switch hasn't learned the MAC addresses yet.
 ```
 
 ---

@@ -60,7 +60,7 @@ code {
 
 /* Base styles (Light Mode) */
 blockquote {
-    background-color: var(--light-purple);
+    background-color: var(--lighter-purple);
     border-left: 4px solid #f0ece2;
     padding: 1rem;
     color: #f0ece2;

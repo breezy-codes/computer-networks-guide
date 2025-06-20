@@ -40,7 +40,7 @@ mkdir ~/.config-packettracer
 Now copy your current GTK theme settings to that new folder:
 
 ```bash
-cp -r ~/.config/gtk-3.0 ~/.config/gtk-4.0 ~/.config/xsettingsd ~/.config-packettracer/
+cp -r ~/.config/dconf ~/.config/gtk-3.0 ~/.config/gtk-4.0 ~/.config/xsettingsd ~/.config-packettracer/
 ```
 
 ![Figure 2](../img/cisco-installs/cisco-kde-theme/fig4.png)

@@ -33,6 +33,8 @@ parts:
         sections:
         - file: cisco/handy-tips/tip1
         - file: cisco/handy-tips/tip2
+        - file: cisco/handy-tips/tip3
+        - file: cisco/handy-tips/tip4
       - file: cisco/cisco-packet-tracer-tutorial
       - file: cisco/dhcp-guide-in-cisco
 

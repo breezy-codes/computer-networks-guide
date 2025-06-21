@@ -53,6 +53,11 @@ enable
 configure terminal
 ```
 
+```{admonition} Tip
+:class: tip
+You can also use the shorthand `conf t` to enter global configuration mode.
+```
+
 This will take you into privileged EXEC mode and then into global configuration mode, where you can start configuring your device.
 
 So there you have it! You’ve successfully accessed the CLI of a router or switch in Cisco Packet Tracer. This is the first step in learning how to configure and manage your network devices effectively.

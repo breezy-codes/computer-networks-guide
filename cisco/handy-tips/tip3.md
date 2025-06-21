@@ -26,7 +26,7 @@ To reset the activity:
 
 Alternatively, you can press **Alt + N** on your keyboard.
 
-![Figure](../../img/cisco-tips/tip2/fig1.png)
+![Figure](../../img/cisco-tips/tip3/fig1.png)
 
 > **Tip:** Some activities also include a **Reset Activity** button directly in the instruction panel. Clicking that will do the same thing.
 

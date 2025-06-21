@@ -20,7 +20,7 @@ We will build the following topology:
 
 Each device will be configured with a static IP address in the same subnet, and we’ll ensure the switches allow Layer 2 traffic to pass between them seamlessly.
 
-![Figure 2](../../img/cisco-tutorials/tutorial-1/fig2.png)
+![Figure 2](../../img/cisco-tutorials/tutorial-2/fig2.png)
 
 ---
 
@@ -41,7 +41,7 @@ Use **Copper Straight-Through** cables to make the following connections:
 - **Switch0** → **Switch1**, using `FastEthernet0/24` on both switches
 - **Switch1** → **PC1**, using `FastEthernet0`
 
-![Figure 2](../../img/cisco-tutorials/tutorial-1/fig2.png)
+![Figure 2](../../img/cisco-tutorials/tutorial-2/fig2.png)
 
 ---
 
@@ -57,7 +57,7 @@ We will assign static IP addresses to both PCs.
    - IP Address: `192.168.20.1`
    - Subnet Mask: `255.255.255.0`
 
-![Figure 2](../../img/cisco-tutorials/tutorial-1/fig3.png)
+![Figure 2](../../img/cisco-tutorials/tutorial-2/fig3.png)
 
 ### Step 3.2 – PC1 IPv4 Settings
 
@@ -67,7 +67,7 @@ We will assign static IP addresses to both PCs.
    - IP Address: `192.168.20.2`
    - Subnet Mask: `255.255.255.0`
 
-![Figure 2](../../img/cisco-tutorials/tutorial-1/fig4.png)
+![Figure 2](../../img/cisco-tutorials/tutorial-2/fig4.png)
 
 ---
 
@@ -107,7 +107,7 @@ This ensures:
 - Port `fa0/1` (to PC0) and `fa0/24` (to Switch1) are active
 - Both are assigned to **VLAN 1**
 
-![Figure 2](../../img/cisco-tutorials/tutorial-1/fig5.png)
+![Figure 2](../../img/cisco-tutorials/tutorial-2/fig5.png)
 
 ---
 
@@ -135,7 +135,7 @@ Again:
 - Port `fa0/1` (to PC1) and `fa0/24` (from Switch0) are active
 - VLAN 1 is used for untagged traffic across the switches
 
-![Figure 2](../../img/cisco-tutorials/tutorial-1/fig6.png)
+![Figure 2](../../img/cisco-tutorials/tutorial-2/fig6.png)
 
 ---
 
@@ -159,22 +159,9 @@ If not, double-check:
 - PC IP addresses are correct and in the same subnet
 - Cabling is correct
 
-![Figure 2](../../img/cisco-tutorials/tutorial-1/fig7.png)
+![Figure 2](../../img/cisco-tutorials/tutorial-2/fig7.png)
 
-![Figure 2](../../img/cisco-tutorials/tutorial-1/fig8.png)
-
----
-
-## Optional: Enable Trunking (if using VLANs beyond VLAN 1)
-
-If you later want to implement multiple VLANs, change the inter-switch link to a trunk port:
-
-```bash
-interface fa0/24
-switchport mode trunk
-```
-
-For this basic setup, using access mode on all ports is sufficient.
+![Figure 2](../../img/cisco-tutorials/tutorial-2/fig8.png)
 
 ---
 

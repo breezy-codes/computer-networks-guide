@@ -172,6 +172,9 @@ version 1
 network 192.168.1.0
 network 10.0.0.0
 exit
+
+write memory
+exit
 ```
 
 ![Figure](../../img/cisco-tutorials/tutorial-9/fig9.png)
@@ -205,6 +208,9 @@ network 192.168.2.0
 network 10.0.0.0
 network 11.0.0.0
 exit
+
+write memory
+exit
 ```
 
 ### Step 4.3 – R2 Configuration
@@ -229,6 +235,9 @@ version 1
 network 192.168.3.0
 network 11.0.0.0
 exit
+
+write memory
+exit
 ```
 
 ![Figure](../../img/cisco-tutorials/tutorial-9/fig10.png)
@@ -252,6 +261,16 @@ show ip route
 You should see RIP routes (`R`) to all remote networks.
 
 ![Figure](../../img/cisco-tutorials/tutorial-9/fig11.png)
+
+You can specifically specify this by running:
+
+```bash
+show ip route R
+```
+
+![Figure](../../img/cisco-tutorials/tutorial-9/fig15.png)
+
+This command will filter the routing table to show only RIP routes, making it easier to verify that all networks are reachable.
 
 ### Step 5.2 – Test Connectivity
 

@@ -186,6 +186,7 @@ From **PC0**, ping **PC3**:
 ```{admonition} Note
 :class: note
 Make sure to check the IP address of PC3 before pinging as it may vary based on the DHCP assignment.
+```
 
 ```bash
 ping 192.168.2.32

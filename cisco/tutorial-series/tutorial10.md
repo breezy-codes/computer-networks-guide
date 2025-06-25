@@ -127,13 +127,10 @@ Here, we manually add static routes to each router.
 :class: note
 Here the static routing configuration is done manually. For example in R0, we add routes to R1 and R2 via the lines - 
 
-    ```bash
-    ip route 192.168.2.0 255.255.255.0 10.0.0.2
-    ip route 192.168.3.0 255.255.255.0 10.0.0.2
-    ```
+- `ip route 192.168.2.0 255.255.255.0 10.0.0.2`
+- `ip route 192.168.3.0 255.255.255.0 10.0.0.2`
 
 This means that R0 will know how to reach the networks of R1 and R2 through the serial link to R1 (10.0.0.2).
-
 ```
 
 ### Step 4.1 – R0 Configuration

@@ -71,6 +71,10 @@ html[data-theme="dark"] blockquote {
     background-color: var(--light-purple);
 }
 
+html[data-theme="dark"] .admonition,
+html[data-theme="dark"] div.admonition {
+    background-color: #41454d;
+}
 
 blockquote p {
     color: #282A36 !important; /* Teal text for paragraphs inside blockquote */

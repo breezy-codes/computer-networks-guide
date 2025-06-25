@@ -1,4 +1,4 @@
-# 5 – How to Customise the Router-PT in Cisco Packet Tracer
+# 5 – How to Customise the Router-PT in Packet Tracer
 
 This guide shows you how to **customise a Router-PT or Router-PT-Empty** device in Cisco Packet Tracer by adding or removing network interface modules.
 

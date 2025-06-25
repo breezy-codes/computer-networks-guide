@@ -1,4 +1,4 @@
-# 7 – Setting Up a Wireless Network in Cisco Packet Tracer
+# 7 – Setting Up a Wireless Network in Packet Tracer
 
 This tutorial is the fifth in our Cisco Packet Tracer series, and it introduces **wireless networking** using the **WRT300N wireless router**. We’ll walk through setting up a **Wi-Fi network**, connecting devices wirelessly and via cable, and testing network connectivity.
 

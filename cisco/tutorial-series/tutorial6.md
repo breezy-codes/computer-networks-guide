@@ -1,4 +1,4 @@
-# 6 – Understanding MAC Addresses in Cisco Packet Tracer
+# 6 – Understanding MAC Addresses in Packet Tracer
 
 This tutorial builds upon [**Tutorial 5 – Understanding ARP**](../tutorial-series/tutorial5) and explores how **MAC (Media Access Control) addresses** work in a switched network. MAC addresses are essential for Ethernet communication and play a key role in how switches forward frames.
 

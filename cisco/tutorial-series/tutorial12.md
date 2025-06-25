@@ -1,4 +1,4 @@
-# 12 - Configuring EIGRP Routing in Cisco Packet Tracer
+# 12 - Configuring EIGRP Routing in Packet Tracer
 
 This tutorial is the twelfth in our Cisco Packet Tracer series and focuses on **EIGRP (Enhanced Interior Gateway Routing Protocol)**, a **hybrid dynamic routing** protocol developed by Cisco. Unlike RIP, EIGRP supports larger networks, faster convergence, and uses composite metrics based on bandwidth and delay to make routing decisions.
 

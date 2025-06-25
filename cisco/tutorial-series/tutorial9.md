@@ -1,4 +1,4 @@
-# 9 - Configuring Static Routing in Cisco Packet Tracer
+# 9 - Configuring Static Routing in Packet Tracer
 
 This tutorial is the nineth in our Cisco Packet Tracer series and focuses on **static routing**, a foundational technique for routing traffic between networks. Unlike RIP, where routers exchange routing tables automatically, static routes must be manually defined on each router, giving you full control over path selection.
 

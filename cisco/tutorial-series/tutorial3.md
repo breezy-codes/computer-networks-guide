@@ -1,4 +1,4 @@
-# 3 – Exploring Simulation Mode in Cisco Packet Tracer
+# 3 – Exploring Simulation Mode in Packet Tracer
 
 This tutorial continues from where we left off in [Tutorial 2](../tutorial-series/tutorial2). You’ve successfully connected two PCs through two switches, now it’s time to **see how the data actually travels** using **Simulation Mode** in Cisco Packet Tracer.
 

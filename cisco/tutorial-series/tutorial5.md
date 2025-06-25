@@ -1,4 +1,4 @@
-# 5 – Understanding ARP in Cisco Packet Tracer
+# 5 – Understanding ARP in Packet Tracer
 
 This tutorial builds upon [**Tutorial 4 – Inter-VLAN Routing**](../tutorial-series/tutorial4) and focuses on a key Layer 2 concept: the **Address Resolution Protocol (ARP)**. ARP is essential for devices to communicate within a local network by resolving IP addresses to MAC addresses.
 

@@ -4,6 +4,13 @@ This tutorial is the nineth in our Cisco Packet Tracer series and focuses on **s
 
 We’ll build a three-router network, each connected to a local switch and two PCs, configure IP addressing, set up RIP on each router, and test connectivity between all endpoints.
 
+If you're after a different routing protocol, check out -
+
+- [Tutorial 9: Configuring Static Routing in Packet Tracer](../tutorial-series/tutorial9.md)
+- [Tutorial 10: Configuring RIP Routing in Packet Tracer](../tutorial-series/tutorial10.md)
+- [Tutorial 11: Configuring OSPF Routing in Packet Tracer](../tutorial-series/tutorial11.md)
+- [Tutorial 12: Configuring EIGRP Routing in Packet Tracer](../tutorial-series/tutorial12.md)
+
 ---
 
 ## Part 1 – Network Topology Overview

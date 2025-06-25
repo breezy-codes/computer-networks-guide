@@ -1,8 +1,8 @@
-# 10 - Configuring RIP Routing in Cisco Packet Tracer
+# 12 - Configuring EIGRP Routing in Cisco Packet Tracer
 
-This tutorial is the ninth in our Cisco Packet Tracer series and introduces **dynamic routing** using the **Routing Information Protocol (RIP)**. Unlike static routes, RIP enables routers to exchange routing information automatically, making it easier to scale and manage networks with multiple paths.
+This tutorial is the twelfth in our Cisco Packet Tracer series and focuses on **EIGRP (Enhanced Interior Gateway Routing Protocol)**, a **hybrid dynamic routing** protocol developed by Cisco. Unlike RIP, EIGRP supports larger networks, faster convergence, and uses composite metrics based on bandwidth and delay to make routing decisions.
 
-We'll use the same three-router topology from the previous tutorial, manually configure IP addresses, and add static routes to ensure full connectivity between all PCs.
+We’ll extend our previous three-router topology by adding an extra link between R0 and R2 (just like how we did for OSPF), configure EIGRP across all routers, and verify dynamic routing.
 
 If you're after a different routing protocol, check out -
 
@@ -17,13 +17,13 @@ If you're after a different routing protocol, check out -
 
 This network includes:
 
-* **Three routers (R1, R2, R3)** connected in a linear series
+* **Three routers (R1, R2, R3)** all connected to each other
 * **Three switches (S1, S2, S3)** – one per router
 * **Two PCs per switch** (6 total PCs)
 
-The goal is to enable all PCs to communicate through RIP-configured routers.
+The goal is to enable all PCs to communicate through EIGRP-configured routers.
 
-![Figure](../../img/cisco-tutorials/tutorial-9/fig14.png)
+![Figure](../../img/cisco-tutorials/tutorial-11/fig1.png)
 
 ---
 
@@ -43,16 +43,9 @@ Label the devices:
 * Switches: **S0**, **S1**, **S2**
 * PCs: **PC0–PC5**
 
-![Figure](../../img/cisco-tutorials/tutorial-9/fig5.png)
-
 ### Step 2.2 – Add Network Modules to Routers
 
 For this topology, use **Router-PT-Empty** devices. Each router needs **two Serial** and **two FastEthernet** interfaces to support all required connections.
-
-```{admonition} Note
-:class: note
-We will only be using one serial and one FastEthernet interface per router for this tutorial, but the additional interfaces will allow for future expansion in subequent tutorials.
-```
 
 Follow these steps for **R0**, **R1**, and **R2**:
 
@@ -79,26 +72,27 @@ For clarity and future expansion, I recommend connecting the switch to the route
 
 #### **Copper Straight-Through Connections**
 
-| From   | To   | Port/Interface         |
-|--------|------|------------------------|
-| PC0    | S1   | fa0/1                  |
-| PC1    | S1   | fa0/2                  |
-| S1     | R0   | fa0/24 → fa2/0         |
-| PC2    | S2   | fa0/1                  |
-| PC3    | S2   | fa0/2                  |
-| S2     | R1   | fa0/24 → fa2/0         |
-| PC4    | S3   | fa0/1                  |
-| PC5    | S3   | fa0/2                  |
-| S3     | R2   | fa0/24 → fa2/0         |
+| From | To | Port/Interface |
+| ---- | -- | -------------- |
+| PC0  | S1 | fa0/1          |
+| PC1  | S1 | fa0/2          |
+| S1   | R0 | fa0/24 → fa2/0 |
+| PC2  | S2 | fa0/1          |
+| PC3  | S2 | fa0/2          |
+| S2   | R1 | fa0/24 → fa2/0 |
+| PC4  | S3 | fa0/1          |
+| PC5  | S3 | fa0/2          |
+| S3   | R2 | fa0/24 → fa2/0 |
 
 #### **Serial DTE Connections**
 
-| From | To | Port/Interface    |
-|------|----|-------------------|
-| R0   | R1 | se0/0 ↔ se1/0     |
-| R1   | R2 | se0/0 ↔ se1/0     |
+| From | To | Port/Interface |
+| ---- | -- | -------------- |
+| R0   | R1 | se0/0 ↔ se1/0  |
+| R1   | R2 | se0/0 ↔ se1/0  |
+| R0   | R2 | se1/0 ↔ se0/0  |
 
-![Figure](../../img/cisco-tutorials/tutorial-9/fig6.png)
+![Figure](../../img/cisco-tutorials/tutorial-11/fig1.png)
 
 ---
 
@@ -110,35 +104,31 @@ Now we will assign IP addresses to all devices, ensuring they can communicate ac
 
 For this tutorial, we will use the following subnets:
 
-| Subnet         | Devices      | Subnet Mask     |
-| -------------- | ------------ | --------------- |
-| 192.168.1.0/24 | PC0, PC1, R0 | 255.255.255.0   |
-| 192.168.2.0/24 | PC2, PC3, R1 | 255.255.255.0   |
-| 192.168.3.0/24 | PC4, PC5, R2 | 255.255.255.0   |
-| 10.0.0.0/30    | R0 ↔ R1      | 255.0.0.0 |
-| 11.0.0.0/30    | R1 ↔ R2      | 255.0.0.0 |
+| Subnet         | Devices      | Subnet Mask   |
+| -------------- | ------------ | ------------- |
+| 192.168.1.0/24 | PC0, PC1, R0 | 255.255.255.0 |
+| 192.168.2.0/24 | PC2, PC3, R1 | 255.255.255.0 |
+| 192.168.3.0/24 | PC4, PC5, R2 | 255.255.255.0 |
+| 10.0.0.0/30    | R0 ↔ R1      | 255.0.0.0     |
+| 11.0.0.0/30    | R1 ↔ R2      | 255.0.0.0     |
+| 12.0.0.0/30    | R0 ↔ R2      | 255.0.0.0     |
 
 ### Step 3.1 – Assign IPs to PCs
 
 Go to **Desktop > IP Configuration** on each PC:
 
-| PC   | IP Address      | Subnet Mask     | Default Gateway   |
-|------|-----------------|-----------------|-------------------|
-| PC0  | 192.168.1.10    | 255.255.255.0   | 192.168.1.1       |
-| PC1  | 192.168.1.11    | 255.255.255.0   | 192.168.1.1       |
-| PC2  | 192.168.2.12    | 255.255.255.0   | 192.168.2.1       |
-| PC3  | 192.168.2.13    | 255.255.255.0   | 192.168.2.1       |
-| PC4  | 192.168.3.14    | 255.255.255.0   | 192.168.3.1       |
-| PC5  | 192.168.3.15    | 255.255.255.0   | 192.168.3.1       |
+| PC  | IP Address   | Subnet Mask   | Default Gateway |
+| --- | ------------ | ------------- | --------------- |
+| PC0 | 192.168.1.10 | 255.255.255.0 | 192.168.1.1     |
+| PC1 | 192.168.1.11 | 255.255.255.0 | 192.168.1.1     |
+| PC2 | 192.168.2.12 | 255.255.255.0 | 192.168.2.1     |
+| PC3 | 192.168.2.13 | 255.255.255.0 | 192.168.2.1     |
+| PC4 | 192.168.3.14 | 255.255.255.0 | 192.168.3.1     |
+| PC5 | 192.168.3.15 | 255.255.255.0 | 192.168.3.1     |
 
 ![Figure](../../img/cisco-tutorials/tutorial-9/fig7.png)
 
-![Figure](../../img/cisco-tutorials/tutorial-9/fig8.png)
-
-```{admonition} Important
-:class: important
-Make a save of your Packet Tracer file now before you start configuring the router, we will be using this same set up in the next few tutorials as we explore different routing protocols.
-```
+![Figure](../../img/cisco-tutorials/tutorial-12/fig1.png)
 
 ---
 
@@ -146,20 +136,27 @@ Make a save of your Packet Tracer file now before you start configuring the rout
 
 Each router in this network handles two types of connections:
 
-- LAN-side via FastEthernet2/0, connected to a local switch
-- WAN-side via Serial interfaces, connected to neighbouring routers
-- All routers will be configured with RIP version 1 for dynamic routing
+* LAN-side via FastEthernet2/0, connected to a local switch
+* WAN-side via Serial interfaces, connected to neighbouring routers
+* All routers will be configured with EIGRP routing
 
-```{admonition} Note
+````{admonition} Note
 :class: note
-The RIP routing configuration is performed using the following commands:
+The EIGRP routing configuration is performed using the following steps in the CLI:
 
-- `router rip` enters RIP configuration mode.
-- `version 1` specifies the use of RIP version 1.
-- `network 192.168.1.0` and `network 10.0.0.0` tell the router to advertise and listen for RIP updates on interfaces belonging to these networks.
+1. Enter EIGRP configuration mode:
+    ```
+    router eigrp 1
+    ```
+    Here, `1` is the autonomous system number (must match on all routers).
 
-This enables the router to automatically share and learn routes for the specified networks with other RIP-enabled routers, eliminating the need for manual static routes.
-```
+2. Specify which networks to advertise:
+    ```
+    network 192.168.1.0
+    network 10.0.0.0
+    ```
+    Here you list the networks directly connected to the router. EIGRP will automatically discover other networks through its neighbours.
+````
 
 ### Step 4.1 – R0 Configuration
 
@@ -184,17 +181,25 @@ clock rate 64000
 no shutdown
 exit
 
-router rip
-version 1
+interface se1/0
+ip address 12.0.0.1 255.0.0.0
+clock rate 64000
+no shutdown
+exit
+
+router eigrp 1
 network 192.168.1.0
 network 10.0.0.0
+network 12.0.0.0
+no auto-summary
+exit
 exit
 
 write memory
 exit
 ```
 
-![Figure](../../img/cisco-tutorials/tutorial-9/fig9.png)
+![Figure](../../img/cisco-tutorials/tutorial-12/fig2.png)
 
 ### Step 4.2 – R1 Configuration
 
@@ -219,11 +224,12 @@ clock rate 64000
 no shutdown
 exit
 
-router rip
-version 1
+router eigrp 1
 network 192.168.2.0
 network 10.0.0.0
 network 11.0.0.0
+no auto-summary
+exit
 exit
 
 write memory
@@ -247,25 +253,30 @@ ip address 11.0.0.2 255.0.0.0
 no shutdown
 exit
 
-router rip
-version 1
+interface se0/0
+ip address 12.0.0.2 255.0.0.0
+no shutdown
+exit
+
+router eigrp 1
 network 192.168.3.0
 network 11.0.0.0
+network 12.0.0.0
+no auto-summary
+exit
 exit
 
 write memory
 exit
 ```
 
-![Figure](../../img/cisco-tutorials/tutorial-9/fig10.png)
-
 ---
 
 ## Part 5 – Verification and Testing
 
-So now your network should be fully configured with RIP routing. The next step is to verify that all devices can communicate across the network.
+So now your network should be fully configured with EIGRP routing. The next step is to verify that all devices can communicate across the network.
 
-![Figure](../../img/cisco-tutorials/tutorial-9/fig14.png)
+![Figure](../../img/cisco-tutorials/tutorial-12/fig1.png)
 
 ### Step 5.1 – Check Routing Tables
 
@@ -275,19 +286,19 @@ Run on each router:
 show ip route
 ```
 
-You should see RIP routes (`R`) to all remote networks.
+You should see EIGRP routes (`D`) to all remote networks.
 
-![Figure](../../img/cisco-tutorials/tutorial-9/fig11.png)
+![Figure](../../img/cisco-tutorials/tutorial-12/fig5.png)
 
 You can specifically specify this by running:
 
 ```bash
-show ip route R
+show ip route eigrp
 ```
 
-![Figure](../../img/cisco-tutorials/tutorial-9/fig15.png)
+![Figure](../../img/cisco-tutorials/tutorial-12/fig6.png)
 
-This command will filter the routing table to show only RIP routes, making it easier to verify that all networks are reachable.
+This command will filter the routing table to show only EIGRP routes, making it easier to verify that all networks are reachable.
 
 ### Step 5.2 – Test Connectivity
 
@@ -299,15 +310,15 @@ ping 192.168.2.12
 ping 192.168.3.14
 ```
 
-![Figure](../../img/cisco-tutorials/tutorial-9/fig12.png)
+![Figure](../../img/cisco-tutorials/tutorial-12/fig7.png)
 
-From **PC3**, ping **PC4**:
+From **PC3**, ping **PC5**:
 
 ```bash
-ping 192.168.3.14
+ping 192.168.3.15
 ```
 
-![Figure](../../img/cisco-tutorials/tutorial-9/fig13.png)
+![Figure](../../img/cisco-tutorials/tutorial-12/fig8.png)
 
 Repeat pings between any devices across networks.
 
@@ -319,5 +330,5 @@ In this tutorial, you:
 
 * Built a three-router, three-switch network with six PCs
 * Assigned IPs and default gateways to all devices
-* Configured RIP v1 on each router
+* Configured EIGRP routing on each router
 * Verified full network reachability using dynamic routing

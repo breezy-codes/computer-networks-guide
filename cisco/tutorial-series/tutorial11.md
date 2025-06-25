@@ -4,6 +4,13 @@ This tutorial is the eleventh in our Cisco Packet Tracer series and focuses on *
 
 We’ll extend our previous three-router topology by adding an extra link between R0 and R2, configure OSPF across all routers, and verify dynamic routing.
 
+If you're after a different routing protocol, check out -
+
+- [Tutorial 9: Configuring Static Routing in Packet Tracer](../tutorial-series/tutorial9.md)
+- [Tutorial 10: Configuring RIP Routing in Packet Tracer](../tutorial-series/tutorial10.md)
+- [Tutorial 11: Configuring OSPF Routing in Packet Tracer](../tutorial-series/tutorial11.md)
+- [Tutorial 12: Configuring EIGRP Routing in Packet Tracer](../tutorial-series/tutorial12.md)
+
 ---
 
 ## Part 1 – Network Topology Overview

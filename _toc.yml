@@ -27,6 +27,8 @@ parts:
         - file: cisco/tutorial-series/tutorial5
         - file: cisco/tutorial-series/tutorial6
         - file: cisco/tutorial-series/tutorial7
+        - file: cisco/tutorial-series/tutorial8
+        - file: cisco/tutorial-series/tutorial9
 
       - file: cisco/handy-tips/index
         title: Packet Tracer Handy Tips

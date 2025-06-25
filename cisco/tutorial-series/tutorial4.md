@@ -83,6 +83,11 @@ Use **Copper Straight-Through** cables for switch-to-router connections:
 * **Switch0** `fa0/24` to **Router0** `gig0/0`
 * **Switch1** `fa0/24` to **Router0** `gig0/1`
 
+```{admonition} Note
+:class: note
+For clarity and future expansion, I recommend connecting the switch to the router using the last available port on the switch (for example, fa0/24). This keeps the lower-numbered ports free for connecting PCs and other end devices.
+```
+
 ![Figure 2](../../img/cisco-tutorials/tutorial-4/fig3.png)
 
 #### Cabling Tips

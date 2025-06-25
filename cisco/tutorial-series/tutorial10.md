@@ -1,4 +1,4 @@
-# 9 - Configuring RIP Routing in Cisco Packet Tracer
+# 10 - Configuring RIP Routing in Cisco Packet Tracer
 
 This tutorial is the ninth in our Cisco Packet Tracer series and introduces **dynamic routing** using the **Routing Information Protocol (RIP)**. Unlike static routes, RIP enables routers to exchange routing information automatically, making it easier to scale and manage networks with multiple paths.
 

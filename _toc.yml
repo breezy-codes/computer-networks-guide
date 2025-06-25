@@ -18,7 +18,7 @@ parts:
           title: How to fix KDE Theme Issues    
  
       - file: cisco/tutorial-series/index
-        title: Packet Tracer Tutorial Series
+        title: Tutorial Series
         sections:
         - file: cisco/tutorial-series/tutorial1
         - file: cisco/tutorial-series/tutorial2
@@ -33,12 +33,14 @@ parts:
         - file: cisco/tutorial-series/tutorial11
 
       - file: cisco/handy-tips/index
-        title: Packet Tracer Handy Tips
+        title: Handy Tips
         sections:
         - file: cisco/handy-tips/tip1
         - file: cisco/handy-tips/tip2
         - file: cisco/handy-tips/tip3
         - file: cisco/handy-tips/tip4
+        - file: cisco/handy-tips/tip5
+
       - file: cisco/cisco-packet-tracer-tutorial
       - file: cisco/dhcp-guide-in-cisco
 

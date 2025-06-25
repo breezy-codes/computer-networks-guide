@@ -1,4 +1,4 @@
-# 9 - Configuring OSPF Routing in Cisco Packet Tracer
+# 11 - Configuring OSPF Routing in Cisco Packet Tracer
 
 This tutorial is the eleventh in our Cisco Packet Tracer series and focuses on **OSPF (Open Shortest Path First)**, a **link-state dynamic routing** protocol. Unlike RIP, OSPF supports larger networks, faster convergence, and more efficient routing decisions using cost metrics based on bandwidth.
 

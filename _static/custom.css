@@ -68,7 +68,7 @@ blockquote {
 
 /* Override for Dark Mode */
 html[data-theme="dark"] blockquote {
-    background-color: var(--medium-purple);
+    background-color: var(--light-purple);
 }
 
 

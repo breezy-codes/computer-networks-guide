@@ -59,8 +59,8 @@ We’ll configure **two subnets**, one per switch:
 
 | Subnet         | Range             | Subnet Mask   |
 | -------------- | ----------------- | ------------- |
-| 192.168.1.0/24 | Switch S0 (VLAN1) | 255.255.255.0 |
-| 192.168.2.0/24 | Switch S1 (VLAN2) | 255.255.255.0 |
+| 192.168.1.0 | Switch S0 (VLAN1) | 255.255.255.0 |
+| 192.168.2.0 | Switch S1 (VLAN2) | 255.255.255.0 |
 
 Router interfaces:
 

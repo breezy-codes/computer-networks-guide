@@ -1,6 +1,6 @@
 # 8 - How to Add a Wireless Access Point to a Network
 
-This tutorial builds upon the network designed in [Tutorial 5](../tutorial-series/tutorial5), where we implemented inter-VLAN routing using trunk links and subinterfaces. In this lesson, we'll integrate a **wireless access point** into that existing network to support **wireless clients** without introducing a new routing layer.
+This tutorial builds upon the network designed in [Tutorial 4](../tutorial-series/tutorial4), where we implemented inter-VLAN routing using trunk links and subinterfaces. In this lesson, we'll integrate a **wireless access point** into that existing network to support **wireless clients** without introducing a new routing layer.
 
 We'll demonstrate how to add and configure an **AccessPoint-PT**, attach it to an existing switch, and connect a wireless laptop that can communicate with the rest of the VLAN.
 
@@ -18,7 +18,7 @@ We'll demonstrate how to add and configure an **AccessPoint-PT**, attach it to a
 
 ## Part 1 – Base Topology
 
-We will continue using the existing network from **Tutorial 5**. The topology includes:
+We will continue using the existing network from **Tutorial 4**. The topology includes:
 
 * **Switch0** and **Switch1** connected to a router (`Router0`) using trunk ports
 * **PC0** and **PC1** in VLAN 10

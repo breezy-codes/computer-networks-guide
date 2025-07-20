@@ -1,61 +1,121 @@
 :root {
-    --lighter-purple: #D8CFFD;
-    --light-purple: #AB94F4;
-    --medium-purple: #644B9F;
-    --dark-purple: #361F77;
+  --lighter-purple: #D8CFFD;
+  --light-purple: #AB94F4;
+  --medium-purple: #644B9F;
+  --dark-purple: #361F77;
+
+  --drac-bg: #282A37;
+  --drac-pink-rgb: 255, 121, 198;
+  --drac-cyan-rgb: 132, 222, 240;
+  --drac-purple-rgb: 189, 147, 249;
+  --drac-green-rgb: 80, 250, 123;
+  --drac-yellow-rgb: 241, 250, 140;
+  --drac-red-rgb: 255, 85, 85;
+
+  --drac-rainbow-gradient: linear-gradient(
+    90deg,
+    rgba(var(--drac-pink-rgb), 0.8) 0%,
+    rgba(var(--drac-purple-rgb), 0.8) 10%,
+    rgba(var(--drac-cyan-rgb), 0.8) 20%,
+    rgba(var(--drac-green-rgb), 0.8) 30%,
+    rgba(var(--drac-yellow-rgb), 0.8) 40%,
+    rgba(var(--drac-pink-rgb), 0.8) 50%,
+    rgba(var(--drac-purple-rgb), 0.8) 60%,
+    rgba(var(--drac-cyan-rgb), 0.8) 70%,
+    rgba(var(--drac-green-rgb), 0.8) 80%,
+    rgba(var(--drac-yellow-rgb), 0.8) 90%,
+    rgba(var(--drac-pink-rgb), 0.8) 100%
+  );
 }
 
 /* Link styling: neon green accents */
 a {
-    color: var(--medium-purple);
-    opacity: 1;
+  color: var(--medium-purple);
+  opacity: 1;
 }
 
 /* Center align all images */
 img {
-    display: block; /* Makes the image behave like a block element */
-    margin-left: auto; /* Automatically adjusts left margin */
-    margin-right: auto; /* Automatically adjusts right margin */
+  display: block; /* Makes the image behave like a block element */
+  margin-left: auto; /* Automatically adjusts left margin */
+  margin-right: auto; /* Automatically adjusts right margin */
 }
 
-/* Headings: Use bronze color for better visibility */
-h1, h2, h3, h4, h5, h6, .headerlink {
-    color: var(--medium-purple) !important;
-    text-align: center;
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+  position: relative;
+  padding-bottom: 0.3em;
+}
+
+h1::after, h2::after, h3::after, h4::after, h5::after, h6::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 4px;
+  border-radius: 10px;
+  background: var(--drac-rainbow-gradient);
+  bottom: 0;
+}
+
+h1 { color: rgb(var(--drac-pink-rgb)); font-size: 2.25em; font-weight: 600; }
+h2 { color: rgb(var(--drac-purple-rgb)); font-size: 2em; font-weight: 600; }
+h3 { color: rgb(var(--drac-cyan-rgb)); font-size: 1.75em; font-weight: 600; }
+h4 { color: rgb(var(--drac-green-rgb)); font-size: 1.5em; font-weight: 500; }
+h5 { color: rgb(var(--drac-yellow-rgb)); font-size: 1.25em; font-weight: 500; }
+h6 { color: rgb(var(--drac-pink-rgb)); font-size: 1em; font-weight: 400; }
+
+/* Optional: Horizontal rule rainbow bar with emoji */
+hr::after {
+  content: "🌈";
+  display: block;
+  text-align: center;
+  margin-top: -1.5em;
+  font-size: 1.2em;
+}
+hr {
+  border: none;
+  height: 4px;
+  border-radius: 4px;
+  background: var(--drac-rainbow-gradient);
+  position: relative;
+  margin: 3em auto;
+  width: 100%;
 }
 
 /* Set the topic title to bronze, even inside nav.contents */
 nav.contents p.topic-title {
-    color: var(--medium-purple) !important;
-    text-decoration: none !important;
-    text-align: center;
+  color: var(--medium-purple) !important;
+  text-decoration: none !important;
+  text-align: center;
 }
 
 a:hover {
-    color: var(--dark-purple);
+  color: var(--dark-purple);
 }
 
 /* Sidebar links styling - change to bronze */
 .bd-sidebar-primary a {
-    color: var(--light-purple) !important; /* Bronze color for sidebar links */
-    font-weight: bold;
+  color: var(--light-purple) !important; /* Bronze color for sidebar links */
+  font-weight: bold;
 }
 
 .bd-sidebar-primary a:hover {
-    color: var(--light-purple) !important; /* Neon green on hover */
+  color: var(--light-purple) !important; /* Neon green on hover */
 }
 
 /* Sidebar headers and dividers: Bronze for accent */
 .sidebar-primary-item h2 {
-    color: var(--light-purple); /* Bronze headers for sidebar */
+  color: var(--light-purple); /* Bronze headers for sidebar */
 }
 
 .sidebar-primary-item hr {
-    border-color: var(--medium-purple); /* Bronze dividers */
+  border-color: var(--medium-purple); /* Bronze dividers */
 }
 
 code {
-    color: var(--medium-purple); /* Muted orange */
+  color: var(--medium-purple); /* Muted orange */
 }
 
 /* Base styles (Light Mode) */
@@ -68,161 +128,157 @@ blockquote {
 
 /* Override for Dark Mode */
 html[data-theme="dark"] blockquote {
-    background-color: var(--light-purple);
+    background-color: var(--medium-purple);
 }
 
-html[data-theme="dark"] .admonition,
-html[data-theme="dark"] div.admonition {
-    background-color: #41454d;
-}
 
 blockquote p {
-    color: #282A36 !important; /* Teal text for paragraphs inside blockquote */
+  color: #282A36 !important; /* Teal text for paragraphs inside blockquote */
 }
 
 /* Button styling: Bronze background with hover effect */
 button {
-    background-color: var(--medium-purple); /* Bronze background */
-    color: #f0ece2; /* Off-white text */
-    border: none;
+  background-color: var(--medium-purple); /* Bronze background */
+  color: #f0ece2; /* Off-white text */
+  border: none;
 }
 
 button:hover {
-    background-color: #1b1b1b; /* Dark hover effect */
-    color: var(--light-purple); /* Neon green hover */
+  background-color: #1b1b1b; /* Dark hover effect */
+  color: var(--light-purple); /* Neon green hover */
 }
 
 /* Highlight row-odd on hover */
 tbody tr.row-odd:hover {
-    background-color: var(--lighter-purple); /* Light purple color */
+  background-color: var(--lighter-purple); /* Light purple color */
 }
 
 /* Highlight row-even on hover */
 tbody tr.row-even:hover {
-    background-color: var(--lighter-purple); /* Light purple color */
+  background-color: var(--lighter-purple); /* Light purple color */
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--medium-purple);
-    border-radius: 6px;
+  background-color: var(--medium-purple);
+  border-radius: 6px;
 }
 
 /* Apply a border color to the table */
 table {
-    border: 1px solid var(--light-purple); /* Border for the entire table */
-    border-collapse: collapse; /* Ensures borders don't double up */
+  border: 1px solid var(--light-purple); /* Border for the entire table */
+  border-collapse: collapse; /* Ensures borders don't double up */
 }
 
 /* Set the border color for table cells (td and th) */
 table th, table td {
-    border: 1px solid var(--light-purple); /* Border for each cell */
+  border: 1px solid var(--light-purple); /* Border for each cell */
 }
 
 table th {
-    background-color: white; /* Bronze header background */
+  background-color: white; /* Bronze header background */
 }
 
 .bd-toc a {
-    color: var(--light-purple); /* Bronze color for TOC links */
+  color: var(--light-purple); /* Bronze color for TOC links */
 }
 
 .bd-toc a:hover {
-    color: var(--light-purple); /* Teal-green hover */
+  color: var(--light-purple); /* Teal-green hover */
 }
 
 /* Active TOC link styling */
 .toc-h2 a.nav-link.active {
-    color: var(--light-purple) !important; /* Bronze for active TOC links */
-    font-weight: bold;
+  color: var(--light-purple) !important; /* Bronze for active TOC links */
+  font-weight: bold;
 }
 .toc-h2 a.nav-link {
-    color: var(--light-purple) !important; /* Teal color when inactive */
-    font-weight: bold;
+  color: var(--light-purple) !important; /* Teal color when inactive */
+  font-weight: bold;
 }
 
 .toc-h2 a.nav-link.active:hover {
-    color: var(--dark-purple) !important; /* Teal-green on hover */
-    font-weight: bold;
+  color: var(--dark-purple) !important; /* Teal-green on hover */
+  font-weight: bold;
 }
 
 /* Button in header article */
 .bd-header-article .btn {
-    color: var(--medium-purple) !important; /* Bronze text */
-    background-color: transparent;
+  color: var(--medium-purple) !important; /* Bronze text */
+  background-color: transparent;
 }
 
 .bd-header-article .btn:hover {
-    background-color: var(--light-purple) !important; /* Teal hover background */
-    color: #1f1d1b !important; /* Dark hover text */
+  background-color: var(--light-purple) !important; /* Teal hover background */
+  color: #1f1d1b !important; /* Dark hover text */
 }
 
 /* Change text color inside span.std-doc to teal */
 span.std-doc {
-    color: var(--medium-purple) !important; /* Teal-green color */
+  color: var(--medium-purple) !important; /* Teal-green color */
 }
 
 /* Captions: Bronze text */
 span.caption-text {
-    color: var(--medium-purple) !important;
-    font-weight: bold;
-    font-size: 1.6em;
+  color: var(--medium-purple) !important;
+  font-weight: bold;
+  font-size: 1.6em;
 }
 
 .toc-entry a.nav-link.active {
-    background-color: transparent;
-    box-shadow: inset max(3px,.1875rem,.12em) 0 0 var(--light-purple);
-    color: var(--light-purple);
-    font-weight: 600;
-  }
+  background-color: transparent;
+  box-shadow: inset max(3px,.1875rem,.12em) 0 0 var(--light-purple);
+  color: var(--light-purple);
+  font-weight: 600;
+}
 
 nav.bd-links .current > a {
-    background-color: transparent;
-    box-shadow: inset max(3px,.1875rem,.12em) 0 0 var(--light-purple);
-    color: var(--light-purple);
-    font-weight: 600;
-  }
+  background-color: transparent;
+  box-shadow: inset max(3px,.1875rem,.12em) 0 0 var(--light-purple);
+  color: var(--light-purple);
+  font-weight: 600;
+}
 
 header.bd-header.navbar a:hover {
-    color: var(--light-purple) !important; /* Teal-green hover */
+  color: var(--light-purple) !important; /* Teal-green hover */
 }
 
 a.reference.internal {
-    color: var(--medium-purple) !important;
+  color: var(--medium-purple) !important;
 }
 
 a.reference.external {
-    color: var(--medium-purple) !important;
+  color: var(--medium-purple) !important;
 }
 
 a.reference.internal:hover {
-    color: var(--light-purple) !important;
+  color: var(--light-purple) !important;
 }
 
 a.reference.external:hover {
-    color: var(--light-purple) !important;
+  color: var(--light-purple) !important;
 }
 
 
 html[data-theme="light"] {
-    --pst-color-background: #fdfdff;
-  }
+  --pst-color-background: #fdfdff;
+}
 
-  a.current.reference.internal {
-    color: var(--light-purple) !important; /* Use the light purple variable */
-    font-weight: bold; /* Optional: make it bold for emphasis */
+a.current.reference.internal {
+  color: var(--light-purple) !important; /* Use the light purple variable */
+  font-weight: bold; /* Optional: make it bold for emphasis */
 }
 
 html[data-theme="dark"] {
-    /* Primary color: Keep this as it is unless you want to change it */
-    --pst-color-primary: #528fe4;
-  
-    /* Announcement color: Keep or adjust based on preference */
-    --sbt-color-announcement: rgb(97, 97, 97);
-  
-    /* Background color: Updated to #282A36 */
-    --pst-color-background: #282A36;
-  }
-  
+  /* Primary color: Keep this as it is unless you want to change it */
+  --pst-color-primary: #528fe4;
+
+  /* Announcement color: Keep or adjust based on preference */
+  --sbt-color-announcement: rgb(97, 97, 97);
+
+  /* Background color: Updated to #282A36 */
+  --pst-color-background: #282A36;
+}
+
 /* Dark Theme */
 html[data-theme="dark"] h1,
 html[data-theme="dark"] h2,
@@ -230,128 +286,172 @@ html[data-theme="dark"] h3,
 html[data-theme="dark"] h4,
 html[data-theme="dark"] h5,
 html[data-theme="dark"] h6 {
-    color: var(--light-purple) !important;
-    text-align: center;
-    padding: 0; /* Ensure padding is reset */
-    margin: 0.5em 0; /* Add consistent margins */
+  text-align: center;
+  padding: 0;
+  margin: 0.5em 0;
+  position: relative;
+}
+
+/* Gradient underline */
+html[data-theme="dark"] h1::after,
+html[data-theme="dark"] h2::after,
+html[data-theme="dark"] h3::after,
+html[data-theme="dark"] h4::after,
+html[data-theme="dark"] h5::after,
+html[data-theme="dark"] h6::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 4px;
+  border-radius: 10px;
+  background: var(--drac-rainbow-gradient);
+  bottom: -0.3em;
+}
+
+/* Specific colors per heading */
+html[data-theme="dark"] h1 { color: rgb(var(--drac-pink-rgb)); font-size: 2.25em; font-weight: 600; }
+html[data-theme="dark"] h2 { color: rgb(var(--drac-purple-rgb)); font-size: 2em; font-weight: 600; }
+html[data-theme="dark"] h3 { color: rgb(var(--drac-cyan-rgb)); font-size: 1.75em; font-weight: 600; }
+html[data-theme="dark"] h4 { color: rgb(var(--drac-green-rgb)); font-size: 1.5em; font-weight: 500; }
+html[data-theme="dark"] h5 { color: rgb(var(--drac-yellow-rgb)); font-size: 1.25em; font-weight: 500; }
+html[data-theme="dark"] h6 { color: rgb(var(--drac-pink-rgb)); font-size: 1em; font-weight: 400; }
+
+/* Rainbow HR with Emoji */
+html[data-theme="dark"] hr {
+  border: none;
+  height: 4px;
+  border-radius: 4px;
+  background: var(--drac-rainbow-gradient);
+  position: relative;
+  margin: 3em auto;
+  width: 100%;
+}
+html[data-theme="dark"] hr::after {
+  content: "🌈";
+  display: block;
+  text-align: center;
+  margin-top: -1.5em;
+  font-size: 1.2em;
 }
 
 html[data-theme="dark"] img:not(.only-dark, .dark-light) {
-    filter: brightness(.9) contrast(1.2);
-  }
+  filter: brightness(1) contrast(1);
+}
 
 /* Sidebar links styling - dark theme */
 html[data-theme="dark"] .bd-sidebar-primary a {
-    color: var(--light-purple) !important; /* Light purple for sidebar links */
-    font-weight: bold;
+  color: var(--light-purple) !important; /* Light purple for sidebar links */
+  font-weight: bold;
 }
 
 html[data-theme="dark"] .bd-sidebar-primary a:hover {
-    color: var(--medium-purple) !important; /* Medium purple on hover */
+  color: var(--medium-purple) !important; /* Medium purple on hover */
 }
 
 /* Code block styling: dark background with orange highlights */
 html[data-theme="dark"] code {
-    background-color: #333333; /* Dark gray */
-    color: #ff79c6; /* Muted orange */
+  background-color: #333333; /* Dark gray */
+  color: #ff79c6; /* Muted orange */
 }
 
 html[data-theme="dark"] code.literal {
-    background-color: var(--pst-color-surface);
-    border: 0.7px solid var(--lighter-purple);
-    border-radius: .25rem;
-    padding: .1rem .25rem;
-  }
+  background-color: var(--pst-color-surface);
+  border: 0.7px solid var(--lighter-purple);
+  border-radius: .25rem;
+  padding: .1rem .25rem;
+}
 
 /* Sidebar headers and dividers: Bronze for accent */
 html[data-theme="dark"] a.current.reference.internal {
-    color: var(--lighter-purple) !important; /* Use the light purple variable */
-    font-weight: bold; /* Optional: make it bold for emphasis */
+  color: var(--lighter-purple) !important; /* Use the light purple variable */
+  font-weight: bold; /* Optional: make it bold for emphasis */
 }
 
 /* Active TOC link styling - dark theme */
 html[data-theme="dark"] .toc-h2 a.nav-link.active {
-    color: var(--lighter-purple) !important; /* Medium purple for active TOC links */
-    font-weight: bold;
+  color: var(--lighter-purple) !important; /* Medium purple for active TOC links */
+  font-weight: bold;
 }
 
 html[data-theme="dark"] .toc-h2 a.nav-link {
-    color: var(--light-purple) !important; /* Light purple when inactive */
-    font-weight: bold;
+  color: var(--light-purple) !important; /* Light purple when inactive */
+  font-weight: bold;
 }
 
 html[data-theme="dark"] .toc-h2 a.nav-link.active:hover {
-    color: var(--lighter-purple) !important; /* Medium purple on hover for active links */
-    font-weight: bold;
+  color: var(--lighter-purple) !important; /* Medium purple on hover for active links */
+  font-weight: bold;
 }
 
 html[data-theme="dark"] span.std-doc {
-    color: var(--light-purple) !important; /* Teal-green color */
+  color: var(--light-purple) !important; /* Teal-green color */
 }
 
 html[data-theme="dark"] a:hover {
-    color: var(--lighter-purple);
+  color: var(--lighter-purple);
 }
 
 html[data-theme="dark"] span.caption-text {
-    color: var(--lighter-purple) !important;
-    font-weight: bold;
-    font-size: 1.6em;
+  color: var(--lighter-purple) !important;
+  font-weight: bold;
+  font-size: 1.6em;
 }
 
 html[data-theme="dark"] summary span {
-    color: black !important;
+  color: black !important;
 }
 
 html[data-theme="dark"] a.reference.internal {
-    color: var(--light-purple) !important;
+  color: var(--light-purple) !important;
 }
 
 html[data-theme="dark"] a.reference.external {
-    color: var(--light-purple) !important;
+  color: var(--light-purple) !important;
 }
 
 html[data-theme="dark"] a.reference.internal:hover {
-    color: var(--lighter-purple) !important;
+  color: var(--lighter-purple) !important;
 }
 
 html[data-theme="dark"] a.reference.external:hover {
-    color: var(--lighter-purple) !important;
+  color: var(--lighter-purple) !important;
 }
 
 html[data-theme="dark"] tbody tr.row-odd:hover {
-    background-color: var(--dark-purple); /* Light purple color */
+  background-color: var(--dark-purple); /* Light purple color */
 }
 
 html[data-theme="dark"] tbody tr.row-even:hover {
-    background-color: var(--dark-purple); /* Light purple color */
+  background-color: var(--dark-purple); /* Light purple color */
 }
 
 html[data-theme="dark"] .bd-header-article .btn {
-    color: var(--light-purple) !important;
-    background-color: transparent;
+  color: var(--light-purple) !important;
+  background-color: transparent;
 }
 
 html[data-theme="dark"] .bd-sidebar-secondary .onthispage * {
-    color: var(--lighter-purple) !important;
-    font-weight: bold;
+  color: var(--lighter-purple) !important;
+  font-weight: bold;
 }
 
-  html[data-theme="dark"] .bd-sidebar-secondary .onthispage {
-    color: var(--lighter-purple) !important;
-    font-weight: bold;
+html[data-theme="dark"] .bd-sidebar-secondary .onthispage {
+  color: var(--lighter-purple) !important;
+  font-weight: bold;
 }
 
 html[data-theme="dark"]  .toc-entry a.nav-link.active {
-    background-color: transparent;
-    box-shadow: inset max(3px,.1875rem,.12em) 0 0 var(--lighter-purple);
-    color: var(--lighter-purple);
-    font-weight: 600;
-  }
+  background-color: transparent;
+  box-shadow: inset max(3px,.1875rem,.12em) 0 0 var(--lighter-purple);
+  color: var(--lighter-purple);
+  font-weight: 600;
+}
 
 nav.bd-links .current > a {
-    background-color: transparent;
-    box-shadow: inset max(3px,.1875rem,.12em) 0 0 var(--lighter-purple);
-    color: var(--lighter-purple);
-    font-weight: 600;
-  }
+  background-color: transparent;
+  box-shadow: inset max(3px,.1875rem,.12em) 0 0 var(--lighter-purple);
+  color: var(--lighter-purple);
+  font-weight: 600;
+}

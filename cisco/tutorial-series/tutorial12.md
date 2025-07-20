@@ -11,6 +11,10 @@ If you're after a different routing protocol, check out -
 - [Tutorial 11: Configuring OSPF Routing in Packet Tracer](../tutorial-series/tutorial11.md)
 - [Tutorial 12: Configuring EIGRP Routing in Packet Tracer](../tutorial-series/tutorial12.md)
 
+Find the CISCO pkt files in the repo -
+
+![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=breezy-codes&repo=CISCO-Packet-Tracer-Files=true&)
+
 ---
 
 ## Part 1 – Network Topology Overview
@@ -237,7 +241,7 @@ exit
 ```
 
 ### Step 4.3 – R2 Configuration
-
+ 
 ```bash
 enable
 configure terminal

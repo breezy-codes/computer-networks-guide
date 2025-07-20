@@ -2,6 +2,10 @@
 
 This tutorial is the fourth in our series on Cisco Packet Tracer, focusing on **inter-VLAN routing** using a **Router-on-a-Stick (ROAS)** configuration. This method allows a single router to route traffic between multiple VLANs by using subinterfaces.
 
+Find the CISCO pkt files in the repo -
+
+![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=breezy-codes&repo=CISCO-Packet-Tracer-Files=true&)
+
 ## Using Subinterfaces to Route Between VLANs in Cisco Packet Tracer
 
 In this tutorial, we’ll walk through a complete setup of **inter-VLAN routing** using a **Router-on-a-Stick (ROAS)** topology. This is a core concept in modern enterprise networks, where multiple **VLANs (Virtual LANs)** are used to segment traffic, and a single router is used to enable communication between them.

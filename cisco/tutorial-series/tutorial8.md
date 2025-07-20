@@ -4,6 +4,10 @@ This tutorial builds upon the network designed in [Tutorial 4](../tutorial-serie
 
 We'll demonstrate how to add and configure an **AccessPoint-PT**, attach it to an existing switch, and connect a wireless laptop that can communicate with the rest of the VLAN.
 
+Find the CISCO pkt files in the repo -
+
+![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=breezy-codes&repo=CISCO-Packet-Tracer-Files=true&)
+
 ---
 
 ## Objectives

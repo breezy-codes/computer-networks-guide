@@ -2,6 +2,10 @@
 
 This tutorial is the first in a series designed to introduce you to networking concepts using Cisco Packet Tracer. It will guide you through creating a simple network with two PCs connected via a switch, configuring both IPv4 and IPv6 addresses, and testing connectivity using the `ping` command.
 
+Find the CISCO pkt files in the repo -
+
+![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=breezy-codes&repo=CISCO-Packet-Tracer-Files=true&)
+
 ## Creating a Simple Network with Two PCs and a Switch in Cisco Packet Tracer
 
 In this first tutorial, we will step through how to build a basic local network using Cisco Packet Tracer. This network will consist of two end devices (PCs) connected through a switch. We will assign both **IPv4** and **IPv6** addresses manually and test communication between the devices using the `ping` command.

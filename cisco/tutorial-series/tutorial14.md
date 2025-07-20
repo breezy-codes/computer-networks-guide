@@ -4,6 +4,10 @@ This tutorial is the fourteenth in our Cisco Packet Tracer series and introduces
 
 We’ll build a basic network with **one router, two switches, six PCs**, and **one DHCP server**. The DHCP server will dynamically assign IP addresses to all PCs in the network.
 
+Find the CISCO pkt files in the repo -
+
+![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=breezy-codes&repo=CISCO-Packet-Tracer-Files=true&)
+
 ---
 
 ## Part 1 – Network Topology Overview

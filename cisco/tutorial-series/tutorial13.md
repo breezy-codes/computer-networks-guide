@@ -4,6 +4,10 @@ This tutorial is the thirteenth in our Cisco Packet Tracer series and focuses on
 
 We will build a small branch-office style topology and configure the branch router to forward all unknown traffic to a main router using a static default route.
 
+Find the CISCO pkt files in the repo -
+
+![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=breezy-codes&repo=CISCO-Packet-Tracer-Files=true&)
+
 ---
 
 ## Part 1 – Network Topology Overview

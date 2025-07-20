@@ -2,6 +2,10 @@
 
 This tutorial is the fifth in our Cisco Packet Tracer series, and it introduces **wireless networking** using the **WRT300N wireless router**. We’ll walk through setting up a **Wi-Fi network**, connecting devices wirelessly and via cable, and testing network connectivity.
 
+Find the CISCO pkt files in the repo -
+
+![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=breezy-codes&repo=CISCO-Packet-Tracer-Files=true&)
+
 ## Creating a Simple Wireless Network with Cisco Packet Tracer
 
 In this tutorial, you will:

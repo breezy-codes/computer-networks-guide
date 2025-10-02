@@ -30,10 +30,10 @@ parts:
         - file: cisco/tutorial-series/tutorial8
         - file: cisco/tutorial-series/tutorial9
         - file: cisco/tutorial-series/tutorial10
-        #- file: cisco/tutorial-series/tutorial11
-        #- file: cisco/tutorial-series/tutorial12
-        #- file: cisco/tutorial-series/tutorial13
-        #- file: cisco/tutorial-series/tutorial14
+        - file: cisco/tutorial-series/tutorial11
+        - file: cisco/tutorial-series/tutorial12
+        - file: cisco/tutorial-series/tutorial13
+        - file: cisco/tutorial-series/tutorial14
 
       - file: cisco/handy-tips/index
         title: Handy Tips

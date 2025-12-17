@@ -23,4 +23,4 @@ Python is a high-level, interpreted programming language that is widely used for
 
 ### Contact-
 
-If you have any questions or feedback, feel free to reach out to me on [LinkedIn](https://www.linkedin.com/in/brianna-laird/).
+If you have any questions or feedback, feel free to reach out to me on [LinkedIn](https://www.linkedin.com/in/brianna-laird/), thank you!

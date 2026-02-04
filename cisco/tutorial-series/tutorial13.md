@@ -6,7 +6,7 @@ We will build a small branch-office style topology and configure the branch rout
 
 Find the CISCO pkt files in the repo -
 
-![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=breezy-codes&repo=CISCO-Packet-Tracer-Files=true&)
+[![Repo](https://img.shields.io/badge/GitHub-CISCO--Packet--Tracer--Files-purple?logo=github)](https://github.com/breezy-codes/CISCO-Packet-Tracer-Files)
 
 ---
 

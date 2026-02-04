@@ -4,7 +4,7 @@ This tutorial is the fourth in our series on Cisco Packet Tracer, focusing on **
 
 Find the CISCO pkt files in the repo -
 
-![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=breezy-codes&repo=CISCO-Packet-Tracer-Files=true&)
+[![Repo](https://img.shields.io/badge/GitHub-CISCO--Packet--Tracer--Files-purple?logo=github)](https://github.com/breezy-codes/CISCO-Packet-Tracer-Files)
 
 ## Using Subinterfaces to Route Between VLANs in Cisco Packet Tracer
 

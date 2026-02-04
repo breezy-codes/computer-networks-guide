@@ -6,7 +6,7 @@ We'll demonstrate how to add and configure an **AccessPoint-PT**, attach it to a
 
 Find the CISCO pkt files in the repo -
 
-![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=breezy-codes&repo=CISCO-Packet-Tracer-Files=true&)
+[![Repo](https://img.shields.io/badge/GitHub-CISCO--Packet--Tracer--Files-purple?logo=github)](https://github.com/breezy-codes/CISCO-Packet-Tracer-Files)
 
 ---
 

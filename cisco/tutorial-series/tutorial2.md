@@ -4,7 +4,7 @@ This tutorial is the second in a series focused on Cisco networking concepts, sp
 
 Find the CISCO pkt files in the repo -
 
-![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=breezy-codes&repo=CISCO-Packet-Tracer-Files=true&)
+[![Repo](https://img.shields.io/badge/GitHub-CISCO--Packet--Tracer--Files-purple?logo=github)](https://github.com/breezy-codes/CISCO-Packet-Tracer-Files)
 
 ## Connecting Two PCs Through Two Switches in Cisco Packet Tracer
 
